@@ -65,9 +65,9 @@
         display block
         width 415px
         height 45px
-        padding 10px 0
+        margin-top 10px
         background url("../../assets/logo.png") no-repeat
-        background-size 60%
+        background-size 50%
     &__search
       float right
       margin-top 15px

@@ -9,7 +9,6 @@
         .sidebar__parent(@click.stop="onMenuClick(menu, index)")
           i.icon(:class="[menu.icon]")
           span {{menu.name}}
-          .icon-expand
         ul.menu
           li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
             span {{childMenu.name}}
@@ -181,7 +180,7 @@
           display inline-block
           as-button()
       .sidebar__item
-        border-bottom 1px solid $color_dark_white
+        border-bottom 1px solid #EFF2F7
       .sidebar__parent
         position relative
         padding 0 20px 0 15px

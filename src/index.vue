@@ -8,7 +8,10 @@
         tab-manager
           router-view
     footer
-      p 1111
+      .container
+        .footer-main
+          .footer-main-title Wuui 1.0.0
+        .footer-social
 </template>
 
 <script>
@@ -84,4 +87,19 @@
       transition opacity .3s
     .router-fade-enter, .router-fade-leave-active
       opacity 0
+  footer
+    clear both
+    font-size 12px
+    background #fff
+    position relative
+    z-index 1
+    color rgba(0,0,0,.65)
+    box-shadow 0 1000px 0 1000px #fff
+    .container
+      padding 20px 50px
+      margin 0 auto
+      .footer-main .footer-main-title
+        line-height 1
+        font-size 22px
+        margin 0
 </style>
