@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import $ from 'jquery'
   import mainNav from 'components/base/head'
   import sideBar from 'components/base/sidebar'
   import mainTab from 'components/base/tab'
@@ -34,6 +35,9 @@
     },
     methods: {
       inactive (data) {
+        let width = data
+        $('.main__container').animate({left: width + 'px'})
+        $('.sidebar').animate({width: width + 'px'})
       }
     }
   }
@@ -72,12 +76,10 @@
     .sidebar
       display block
       float left
-      width 16%
-      min-width 200px
+      width 200px
     .main__container
       display block
-      float left
-      width 84%
+      margin-left 200px
       padding 0 0 120px
       margin-left -1px
       min-height 500px
@@ -98,6 +100,7 @@
     .container
       padding 20px 50px
       margin 0 auto
+      background #EFF2F7
       .footer-main .footer-main-title
         line-height 1
         font-size 22px

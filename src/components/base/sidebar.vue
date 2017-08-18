@@ -1,17 +1,30 @@
 <template lang="pug">
   .sidebar
-    .sidebar-expand
-      .sidebar__item(:class="{active:homeTabActive}")
-        .sidebar__parent(@click.stop="onHomeMenuClick()")
-          i.icon
-          span Introduction
-      .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
-        .sidebar__parent(@click.stop="onMenuClick(menu, index)")
+    transition(name="slide-fade" mode="out-in")
+      .sidebar-flex(v-if="show" key="flex")
+        .sidebar__item
+          i.icon.icon-sider-expand(@click="showMenu()")
+        .sidebar__item(v-for="(menu, index) in menuList", @mouseenter = "focus(menu)", @mouseleave = "focus(menu)" v-cloak)
           i.icon(:class="[menu.icon]")
-          span {{menu.name}}
-        ul.menu
-          li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
-            span {{childMenu.name}}
+          transition(name="fade")
+            ul.menu(v-show="menu.active")
+              li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
+                span {{childMenu.name}}
+      .sidebar-expand(v-else  key="expand")
+        .sidebar__item(:class="{active:homeTabActive}")
+          .sidebar__parent(@click.stop="onHomeMenuClick()")
+            i.icon
+            span Introduction
+            .sidebar__item_nav
+              i.icon.icon-sider-flex(@click.stop="showMenu()")
+        .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
+          .sidebar__parent(@click.stop="onMenuClick(menu, index)")
+            i.icon(:class="[menu.icon]")
+            span {{menu.name}}
+            .icon-expand
+          ul.menu(v-show="!menu.active")
+            li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
+              span {{childMenu.name}}
   </template>
 
 <script>
@@ -36,6 +49,13 @@
     methods: {
       showMenu () {
         this.show = !this.show
+        let width = 0
+        if (this.show) {
+          width = 50
+        } else {
+          width = 200
+        }
+        this.$emit('data', width)
         this.menuList.forEach(function (firstMenu) {
           firstMenu.active = false
         })
@@ -72,7 +92,7 @@
               this.activeIndex = -1
             }
           } else {
-            this.inactive()
+//            this.inactive()
             menu.active = true
             this.activeIndex = index
           }
@@ -90,13 +110,13 @@
 //          console.error('[ROUTER] Not found page :' + pageName)
           this.open()
         }
-        if (parent) {
-          parent.children.forEach(function (childMenu) {
-            if (childMenu !== menu) {
-              childMenu.active = false
-            }
-          })
-        }
+//        if (parent) {
+//          parent.children.forEach(function (childMenu) {
+//            if (childMenu !== menu) {
+//              childMenu.active = false
+//            }
+//          })
+//        }
         menu.active = true
         this.inactiveSubMenu(parent, menu)
       },
@@ -156,11 +176,46 @@
 <style lang="stylus" scoped>
   @import '../../css/define';
   .sidebar
+    .sidebar-flex
+      position relative
+      top 0
+      display inline-block
+      width 50px
+      .sidebar__item
+        position relative
+        height 50px
+        line-height 50px
+        background #b4d0ee
+        border-bottom 1px solid $color_dark_white
+        &:first-child
+          &:hover
+            background $color_dark_blue
+        &:hover, &.active
+          background $color_dark_blue
+        .icon
+          padding 14px 15px
+          height 22px
+          display inline-block
+          as-button()
+        .menu
+          position absolute
+          top 0px
+          left 50px
+          color $color_white
+          background $color_dark_blue
+          z-index 9999
+          &__list
+            position relative
+            padding 0 32px
+            font-size 14px
+            white-space nowrap
+            &:hover
+              background $color_light_blue
     .sidebar-expand
       position relative
       top 0
       width 200px
-      .sidebar__item_nav
+      .sidebar__parent .sidebar__item_nav
         position absolute
         top 0
         right 0
@@ -171,13 +226,10 @@
         background #fff
         z-index 999
         .icon
-          position absolute
-          top 0 !important
-          margin-right 0 !important
-          right 0
+          display inline-block
+          margin-left 10px
           padding 14px 15px
           height 22px
-          display inline-block
           as-button()
       .sidebar__item
         border-bottom 1px solid #EFF2F7
@@ -203,6 +255,11 @@
           right 15px
           top 21px
           set-icon 15px 8px "sidebar/icon-menu-collapse.png"
+      .sidebar__item.active
+        .sidebar__parent
+          background $color_white
+          .icon-expand
+            set-icon 15px 8px "sidebar/icon-menu-expand.png"
       .menu
         background #fff
         &__list
@@ -233,48 +290,28 @@
     background-position center center
   .icon-sider-flex
     set-icon-pos 21px 20px "sidebar/icon-sider-flex-active.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 21px 20px "sidebar/icon-sider-flex.png"
   .icon-sider-expand
     set-icon-pos 21px 20px "sidebar/icon-sider-expand-active.png"
     .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
       set-icon-pos 21px 20px "sidebar/icon-sider-expand.png"
   .icon-assets
     set-icon-pos 18px 20px "sidebar/icon-assets.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-assets-active.png"
   .icon-customer
     set-icon-pos 18px 20px "sidebar/icon-customer.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-customer-active.png"
   .icon-product
     set-icon-pos 18px 20px "sidebar/icon-product.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-product-active.png"
   .icon-report
     set-icon-pos 18px 20px "sidebar/icon-report.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-report-active.png"
   .icon-market
     set-icon-pos 18px 20px "sidebar/icon-market.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-market-active.png"
   .icon-wallet
     set-icon-pos 18px 20px "sidebar/icon-wallet.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-wallet-active.png"
   .icon-model
     set-icon-pos 18px 20px "sidebar/icon-model.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-model-active.png"
   .icon-performance
     set-icon-pos 18px 20px "sidebar/icon-performance.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-performance-active.png"
   .icon-system
     set-icon-pos 18px 20px "sidebar/icon-system.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 18px 20px "sidebar/icon-system-active.png"
   .slide-fade-enter-active
     transition all .3s ease
   .slide-fade-leave-active
