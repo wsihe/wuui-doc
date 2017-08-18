@@ -1,16 +1,17 @@
 <template lang="pug">
   .main
     main-nav
-    side-bar(v-on:data="inactive")
-    .main__content
-      main-tab
+    .main__content.clearfix
+      side-bar(v-on:data="inactive")
       .main__container
+        main-tab
         tab-manager
           router-view
+    footer
+      p 1111
 </template>
 
 <script>
-  import $ from 'jquery'
   import mainNav from 'components/base/head'
   import sideBar from 'components/base/sidebar'
   import mainTab from 'components/base/tab'
@@ -30,8 +31,6 @@
     },
     methods: {
       inactive (data) {
-        let width = data
-        $('.main__content').animate({left: width + 'px'})
       }
     }
   }
@@ -39,16 +38,19 @@
 
 <style lang="stylus">
   @import "css/index.styl"
+  .main
+    background #ececec
   .main__content
-    position absolute
-    top 60px
-    left 200px
-    right 0
-    bottom 0
-    background #e7eef3
+    display block
+    margin 0 48px
+    border-radius 4px
+    padding 1px 0 0
+    margin-bottom 24px
+    background  #fff
+    height 100%
     .tab__container
       padding 0 20px
-      background #d8e2ee
+      background #F9FAFC
       height 32px
       overflow hidden
       .tab__item
@@ -64,18 +66,20 @@
         .el-icon-close
           font-size 8px
           font-weight 200
+    .sidebar
+      display block
+      float left
+      width 16%
+      min-width 200px
     .main__container
-      position absolute
-      top 30px
-      bottom 0
-      right 0
-      left 0
-      margin 20px
-      padding 20px
-      overflow auto
-      min-width 984px
-      background $color_white
-      border-top 2px solid $color_dark_blue
+      display block
+      float left
+      width 84%
+      padding 0 0 120px
+      margin-left -1px
+      min-height 500px
+      overflow hidden
+      border-left 1px solid #e9e9e9
     .router-fade-enter-active, .router-fade-leave-active
       transition opacity .3s
     .router-fade-enter, .router-fade-leave-active

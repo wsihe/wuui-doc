@@ -1,30 +1,18 @@
 <template lang="pug">
   .sidebar
-    transition(name="slide-fade" mode="out-in")
-      .sidebar-flex(v-if="show" key="flex")
-        .sidebar__item
-          i.icon.icon-sider-expand(@click="showMenu()")
-        .sidebar__item(v-for="(menu, index) in menuList", @mouseenter = "focus(menu)", @mouseleave = "focus(menu)" v-cloak)
+    .sidebar-expand
+      .sidebar__item(:class="{active:homeTabActive}")
+        .sidebar__parent(@click.stop="onHomeMenuClick()")
+          i.icon
+          span Introduction
+      .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
+        .sidebar__parent(@click.stop="onMenuClick(menu, index)")
           i.icon(:class="[menu.icon]")
-          transition(name="fade")
-            ul.menu(v-show="menu.active")
-              li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
-                span {{childMenu.name}}
-      .sidebar-expand(v-else  key="expand")
-        .sidebar__item(:class="{active:homeTabActive}")
-          .sidebar__parent(@click.stop="onHomeMenuClick()")
-            i.icon
-            span Introduction
-            .sidebar__item_nav
-              i.icon.icon-sider-flex(@click.stop="showMenu()")
-        .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
-          .sidebar__parent(@click.stop="onMenuClick(menu, index)")
-            i.icon(:class="[menu.icon]")
-            span {{menu.name}}
-            .icon-expand
-          ul.menu(v-show="menu.active")
-            li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
-              span {{childMenu.name}}
+          span {{menu.name}}
+          .icon-expand
+        ul.menu
+          li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
+            span {{childMenu.name}}
   </template>
 
 <script>
@@ -49,13 +37,6 @@
     methods: {
       showMenu () {
         this.show = !this.show
-        let width = 0
-        if (this.show) {
-          width = 50
-        } else {
-          width = 200
-        }
-        this.$emit('data', width)
         this.menuList.forEach(function (firstMenu) {
           firstMenu.active = false
         })
@@ -176,49 +157,6 @@
 <style lang="stylus" scoped>
   @import '../../css/define';
   .sidebar
-    position absolute
-    top 60px
-    left 0
-    bottom 0
-    background #d8e2ee
-    .sidebar-flex
-      position relative
-      top 0
-      display inline-block
-      width 50px
-      .sidebar__item
-        position relative
-        height 50px
-        line-height 50px
-        background #b4d0ee
-        border-bottom 1px solid $color_dark_white
-        &:first-child
-          &:hover
-            background $color_dark_blue
-        &:hover, &.active
-          background $color_dark_blue
-        .icon
-          position absolute
-          top 0
-          right 0
-          padding 14px 15px
-          height 22px
-          display inline-block
-          as-button()
-        .menu
-          position absolute
-          top 0px
-          left 50px
-          color $color_white
-          background $color_dark_blue
-          z-index 9999
-          &__list
-            position relative
-            padding 0 32px
-            font-size 14px
-            white-space nowrap
-            &:hover
-              background $color_light_blue
     .sidebar-expand
       position relative
       top 0
@@ -231,7 +169,7 @@
         height 50px
         line-height 50px
         color $color_white
-        background #b4d0ee
+        background #fff
         z-index 999
         .icon
           position absolute
@@ -252,7 +190,7 @@
         height 50px
         line-height 50px
         as-button()
-        background #b4d0ee
+        background #fff
         .icon
           position relative
           top 5px
@@ -266,17 +204,8 @@
           right 15px
           top 21px
           set-icon 15px 8px "sidebar/icon-menu-collapse.png"
-      .sidebar__item.active
-        border-bottom none
-        .sidebar__parent
-          color $color_white
-          background $color_dark_blue
-          .icon-expand
-            set-icon 15px 8px "sidebar/icon-menu-expand.png"
-        .sidebar__item_nav
-          background $color_dark_blue
       .menu
-        background #d8e2ee
+        background #fff
         &__list
           position relative
           padding 0 15px 0 52px

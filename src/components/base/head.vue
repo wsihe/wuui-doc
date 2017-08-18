@@ -51,7 +51,12 @@
 
 <style lang="stylus" scoped>
   .navbar
-    padding 0 20px
+    transition opacity .5s
+    background #fff
+    height 80px
+    margin-bottom 24px
+    padding 0 48px
+    width 100%
     &__logo
       float left
       height auto
@@ -59,7 +64,7 @@
       .logo
         display block
         width 415px
-        height 30px
+        height 45px
         padding 10px 0
         background url("../../assets/logo.png") no-repeat
         background-size 60%

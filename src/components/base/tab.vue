@@ -47,7 +47,7 @@
   @import '../../css/define'
   .main__tab
     padding 0 20px
-    background #d8e2ee
+    background #F9FAFC
     height 32px
     overflow hidden
     .tab__container
@@ -70,14 +70,14 @@
         height 32px
         line-height 32px
         text-align center
-        background #b4d1ee
-        border-right 1px solid $color_dark_white
+        background #EFF2F7
+        border-right 1px solid #fff
         as-button()
         z-index auto
         &:first-child
           border-left 1px solid $color_dark_white
         &.active
-          background #e7eef3
+          background #F9FAFC
         &:hover
           opacity 0.8
         .tab__title
