@@ -1,10 +1,20 @@
 <template lang="pug">
-  .navbar
-    .navbar__logo
-      a.logo(href='javascript:void(0)')
-    .navbar__collapse
-      .navbar__search
-        el-input(placeholder="请输入组件编号或组件名称" icon="search")
+  header
+    .header-navbar
+      .header-navbar__logo
+        a.logo(href='javascript:void(0)')
+      <!--.header-navbar__collapse-->
+        <!--.header-navbar__search-->
+          <!--el-input(placeholder="请输入组件编号或组件名称" icon="search")-->
+      ul.header-nav
+        li.header-nav__item
+          a 首页
+        li.header-nav__item
+          a 指南
+        li.header-nav__item.active
+          a 组件
+        li.header-nav__item
+          a 中文/En
 </template>
 
 <script>
@@ -50,7 +60,7 @@
 </script>
 
 <style lang="stylus" scoped>
-  .navbar
+  .header-navbar
     transition opacity .5s
     background #fff
     height 80px
@@ -69,41 +79,24 @@
         background url("../../assets/logo.png") no-repeat
         background-size 50%
     &__search
-      float right
+      float left
       margin-top 15px
       width 220px
-    .navbar-nav
-      position relative
+    .header-nav
+      border 0
       float right
-      .login-user
-        display block
-        margin-left 5px
-        padding 21px 20px
-        &.active
-          background #E5E9F2
-      .dropdown-menu
-        position absolute
-        top 100%
-        right 0
-        padding 5px 0
-        margin -3px 0 0
-        min-width 180px
-        border 1px solid #ccc
-        background #fff
-        z-index 1000
-        li
-          a
-            color #0f75b7
-            display block
-            padding 3px 20px
-            clear both
-            &.user-name
-              color #333
-              border-bottom 1px solid #ccc
-            &.logout
-              text-align center
-          &.task
-            padding 8px 0
-            border-bottom 1px solid #ccc
-
+      font-size 14px
+      font-family Lato,Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+      .header-nav__item
+        position relative
+        top 1px
+        float left
+        height 80px
+        line-height 80px
+        min-width 72px
+        text-align center
+        border-bottom-width 3px
+        &:hover, &.active
+          border-bottom 2px solid #108ee9
+          color #108ee9
 </style>
