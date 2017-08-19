@@ -14,7 +14,7 @@
         .sidebar__item(:class="{active:homeTabActive}")
           .sidebar__parent(@click.stop="onHomeMenuClick()")
             i.icon
-            span Introduction
+            span Wuui1.0.0
             .sidebar__item_nav
               i.icon.icon-sider-flex(@click.stop="showMenu()")
         .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
@@ -110,13 +110,13 @@
 //          console.error('[ROUTER] Not found page :' + pageName)
           this.open()
         }
-//        if (parent) {
-//          parent.children.forEach(function (childMenu) {
-//            if (childMenu !== menu) {
-//              childMenu.active = false
-//            }
-//          })
-//        }
+        if (parent) {
+          parent.children.forEach(function (childMenu) {
+            if (childMenu !== menu) {
+              childMenu.active = false
+            }
+          })
+        }
         menu.active = true
         this.inactiveSubMenu(parent, menu)
       },

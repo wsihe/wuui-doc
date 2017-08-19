@@ -1,8 +1,28 @@
 export const siderList = {
-  'label': 'river-组件',
+  'label': 'Wuui',
   'url': null,
   'index': null,
   'menuItem': [
+    {
+      'icon': 'icon-customer',
+      'label': '快速开始',
+      'url': null,
+      'index': null,
+      'menuItem': [
+        {
+          'label': '安装',
+          'url': 'colorDemo',
+          'index': null,
+          'menuItem': null
+        },
+        {
+          'label': '使用',
+          'url': 'buttonDemo',
+          'index': null,
+          'menuItem': null
+        }
+      ]
+    },
     {
       'icon': 'icon-customer',
       'label': 'Basic',
