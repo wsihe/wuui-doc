@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/index'
-// import store from '@/store/'
-// import {RECORD_LOGIN} from '@/store/mutation-types'
-// import {getStore} from '@/common/utils'
 
 Vue.use(Router)
 
@@ -19,6 +16,14 @@ const router = new Router({
   mode: 'history',
   routes:
   [{
+    path: '/index',
+    name: 'index',
+    meta: {
+      title: 'Introduction'
+    },
+    component: home
+  },
+  {
     path: '/',
     component: index,
     children: [
@@ -84,24 +89,6 @@ const router = new Router({
       }]
   }]
 })
-
-// if (getStore('token')) {
-//   store.commit(RECORD_LOGIN, getStore('token'))
-// }
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.requireAuth !== 0) {
-//     if (store.state.token) {
-//       next()
-//     } else {
-//       next({
-//         path: '/login',
-//         query: {redirect: to.fullPath}
-//       })
-//     }
-//   } else {
-//     next()
-//   }
-// })
 
 export default router
 

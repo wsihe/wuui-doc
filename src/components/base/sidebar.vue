@@ -176,6 +176,7 @@
 <style lang="stylus" scoped>
   @import '../../css/define';
   .sidebar
+    font-family Lato,Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
     .sidebar-flex
       position relative
       top 0
@@ -236,7 +237,7 @@
       .sidebar__parent
         position relative
         padding 0 20px 0 15px
-        color $color_light_black
+        color: rgba(0,0,0,.65);
         font-size 16px
         height 50px
         line-height 50px
@@ -266,7 +267,7 @@
           position relative
           padding 0 15px 0 52px
           font-size 14px
-          color #666
+          color: rgba(0,0,0,.65);
           height 40px
           line-height 40px
           white-space nowrap
