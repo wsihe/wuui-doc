@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/index'
+import component from '@/pages/component'
 
 Vue.use(Router)
 
@@ -25,17 +25,17 @@ const router = new Router({
   },
   {
     path: '/',
-    component: index,
+    component: component,
     children: [
       {
         path: '',
-        redirect: '/home'
+        redirect: '/component'
       },
       {
-        path: '/home',
+        path: '/component',
         name: 'home',
         meta: {
-          title: 'Introduction'
+          title: 'Introduce'
         },
         component: home
       },

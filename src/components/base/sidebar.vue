@@ -29,7 +29,8 @@
 
 <script>
 //  import authService from 'services/login'
-  import {siderList} from 'services/getData'
+//  import {siderList} from 'services/getData'
+  import siderList from '@/i18n/nav.config.json'
   import {firstLowerCase} from '@/common/utils'
   export default {
     data () {
@@ -42,9 +43,7 @@
       }
     },
     mounted () {
-      siderList().then(res => {
-        this.handleMenuData(res)
-      })
+      this.handleMenuData(siderList)
     },
     methods: {
       showMenu () {

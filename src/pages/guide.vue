@@ -16,9 +16,9 @@
 
 <script>
   import $ from 'jquery'
-  import mainNav from 'components/base/head'
-  import sideBar from 'components/base/sidebar'
-  import mainTab from 'components/base/tab'
+  import mainNav from '@/components/base/head'
+  import sideBar from '@/components/base/sidebar'
+  import mainTab from '@/components/base/tab'
   export default {
     data () {
       return {
@@ -44,7 +44,7 @@
 </script>
 
 <style lang="stylus">
-  @import "css/index.styl"
+  @import "../css/index.styl"
   .main
     background #ececec
   .main__content
