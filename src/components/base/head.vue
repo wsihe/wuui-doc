@@ -97,6 +97,9 @@
         text-align center
         border-bottom-width 3px
         &:hover, &.active
-          border-bottom 2px solid #108ee9
+          border-bottom 3px solid #108ee9
           color #108ee9
+          a
+            color #108ee9
+            font-weight 700
 </style>
