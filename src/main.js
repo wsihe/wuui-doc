@@ -6,8 +6,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import directives from './directives/directives'
 import Marked from './directives/marked'
-import * as filters from './filter/filters'
-
 import Message from './packages/message/main'
 
 Vue.config.productionTip = false
@@ -18,10 +16,6 @@ tabManager(Vue, store, router)
 
 Object.keys(directives).forEach(key => {
   Vue.directive(key, directives[key])
-})
-
-Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
 })
 
 const install = function (Vue, opts = {}) {
