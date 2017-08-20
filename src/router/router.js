@@ -6,14 +6,14 @@ import component from '@/pages/component'
 
 Vue.use(Router)
 
-const home = r => require.ensure([], () => r(require('@/examples/home')), 'home')
-const colorDemo = r => require.ensure([], () => r(require('@/examples/basic/colorDemo')), 'colorDemo')
-const buttonDemo = r => require.ensure([], () => r(require('@/examples/basic/buttonDemo')), 'buttonDemo')
-const switchDemo = r => require.ensure([], () => r(require('@/examples/form/switchDemo')), 'switchDemo')
-const paginationDemo = r => require.ensure([], () => r(require('@/examples/data/paginationDemo')), 'paginationDemo')
-const messageDemo = r => require.ensure([], () => r(require('@/examples/notice/messageDemo')), 'messageDemo')
-const collapseDemo = r => require.ensure([], () => r(require('@/examples/others/collapseDemo')), 'collapseDemo')
-// const login = r => require.ensure([], () => r(require('@/examples/login/login')), 'login')
+const home = r => require.ensure([], () => r(require('@/docs/zh-CN/home')), 'home')
+const colorDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/basic/colorDemo')), 'colorDemo')
+const buttonDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/basic/buttonDemo')), 'buttonDemo')
+const switchDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/form/switchDemo')), 'switchDemo')
+const paginationDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/data/paginationDemo')), 'paginationDemo')
+const messageDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/notice/messageDemo')), 'messageDemo')
+const collapseDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/others/collapseDemo')), 'collapseDemo')
+// const login = r => require.ensure([], () => r(require('@/docs/zh-CN/login/login')), 'login')
 const router = new Router({
   mode: 'history',
   routes:

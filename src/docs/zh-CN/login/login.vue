@@ -82,7 +82,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../../css/define'
   .page_login
     width 100%
     height 100%

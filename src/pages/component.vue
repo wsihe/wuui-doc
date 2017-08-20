@@ -7,11 +7,7 @@
         main-tab
         tab-manager
           router-view
-    footer
-      .container
-        .footer-main
-          .footer-main-title Wuui 1.0.0
-        .footer-social
+    main-footer
 </template>
 
 <script>
@@ -19,6 +15,7 @@
   import mainNav from '@/components/base/head'
   import sideBar from '@/components/base/sidebar'
   import mainTab from '@/components/base/tab'
+  import mainFooter from '@/components/base/footer'
   export default {
     data () {
       return {
@@ -28,7 +25,8 @@
     components: {
       mainNav,
       sideBar,
-      mainTab
+      mainTab,
+      mainFooter
     },
     created () {
       // console.log(this.show)

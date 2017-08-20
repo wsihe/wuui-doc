@@ -6,55 +6,31 @@
       <!--.header-navbar__collapse-->
         <!--.header-navbar__search-->
           <!--el-input(placeholder="请输入组件编号或组件名称" icon="search")-->
+      .header-lang 中文
       ul.header-nav
         li.header-nav__item
           router-link(active-class="active" to='index') 首页
         li.header-nav__item
           router-link(active-class="active" to='guide') 指南
-        li.header-nav__item.active
+        li.header-nav__item
           router-link(active-class="active" to='component') 组件
         //li.header-nav__item
         //  a 中文/En
 </template>
 
 <script>
-  import {mapState, mapActions, mapMutations} from 'vuex'
   export default {
     data () {
       return {
-        userName: '',
-        userId: '',
-        showMenu: false
       }
     },
     created () {
     },
     mounted () {
-      // 获取用户信息
-//      this.getUserInfo().then(() => {
-//        this.userName = this.userInfo.userName
-//        this.userId = this.userInfo.userId
-//      })
     },
     computed: {
-      ...mapState([
-        'userInfo'
-      ])
     },
     methods: {
-      ...mapActions([
-        'getUserInfo'
-      ]),
-      ...mapMutations([
-        'RECORD_LOGOUT'
-      ]),
-      focus (focused) {
-        this.showMenu = focused === true || focused === 1
-      },
-      logout () {
-        this.RECORD_LOGOUT()
-        this.$router.push({path: '/login'})
-      }
     }
   }
 </script>
@@ -89,7 +65,7 @@
       font-family Lato,Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
       .header-nav__item
         position relative
-        top 1px
+        top -2px
         float left
         height 80px
         line-height 80px
@@ -102,10 +78,17 @@
           display block
           padding 0 20px
           opacity .9
-        &:hover, &.active
-          border-bottom 3px solid #108ee9
-          color #108ee9
-          a
+          &:hover, &.active
+            border-bottom 3px solid #108ee9
             color #108ee9
             font-weight 700
+    .header-lang
+      float right
+      margin-top 28px
+      margin-left 40px
+      padding 1px 5px 2px
+      color #999
+      font-size 12px
+      border-radius 3px
+      border 1px solid #e9e9e9
 </style>

@@ -48,7 +48,7 @@
         this.show = !this.show
         let width = 0
         if (this.show) {
-          width = 50
+          width = 40
         } else {
           width = 200
         }
@@ -162,7 +162,7 @@
       },
       open () {
         this.$message({
-          message: '该组件还未实现，努力敲代码中...',
+          message: '待添加...',
           type: 'warning'
         })
       }
@@ -178,29 +178,29 @@
       position relative
       top 0
       display inline-block
-      width 50px
+      width 40px
       .sidebar__item
         position relative
-        height 50px
-        line-height 50px
-        background #b4d0ee
+        height 40px
+        line-height 40px
+        background #D3DCE6
         border-bottom 1px solid $color_dark_white
         &:first-child
           &:hover
-            background $color_dark_blue
+            background #E5E9F2
         &:hover, &.active
-          background $color_dark_blue
+          background #E5E9F2
         .icon
-          padding 14px 15px
+          padding 18px
           height 22px
           display inline-block
           as-button()
         .menu
           position absolute
           top 0px
-          left 50px
-          color $color_white
-          background $color_dark_blue
+          left 40px
+          color #666
+          background #E5E9F2
           z-index 9999
           &__list
             position relative
@@ -208,7 +208,7 @@
             font-size 14px
             white-space nowrap
             &:hover
-              background $color_light_blue
+              background #EFF2F7
     .sidebar-expand
       position relative
       top 0
@@ -290,8 +290,6 @@
     set-icon-pos 21px 20px "sidebar/icon-sider-flex-active.png"
   .icon-sider-expand
     set-icon-pos 21px 20px "sidebar/icon-sider-expand-active.png"
-    .sidebar__item.active &, .sidebar-flex .sidebar__item:hover &
-      set-icon-pos 21px 20px "sidebar/icon-sider-expand.png"
   .icon-assets
     set-icon-pos 18px 20px "sidebar/icon-assets.png"
   .icon-customer

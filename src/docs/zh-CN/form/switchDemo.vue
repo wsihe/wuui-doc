@@ -56,7 +56,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../../css/define'
   .page_model_manage
     display block
 </style>

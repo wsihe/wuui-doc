@@ -76,7 +76,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../css/define'
   .page-home
     display block
 </style>

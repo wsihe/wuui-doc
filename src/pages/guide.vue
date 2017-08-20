@@ -2,43 +2,29 @@
   .main
     main-nav
     .main__content.clearfix
-      side-bar(v-on:data="inactive")
+      .sidebar
       .main__container
-        main-tab
-        tab-manager
-          router-view
-    footer
-      .container
-        .footer-main
-          .footer-main-title Wuui 1.0.0
-        .footer-social
+        router-view
+    main-footer
 </template>
 
 <script>
-  import $ from 'jquery'
   import mainNav from '@/components/base/head'
   import sideBar from '@/components/base/sidebar'
-  import mainTab from '@/components/base/tab'
+  import mainFooter from '@/components/base/footer'
   export default {
     data () {
       return {
-        show: true // 页签数据
       }
     },
     components: {
       mainNav,
       sideBar,
-      mainTab
+      mainFooter
     },
     created () {
-      // console.log(this.show)
     },
     methods: {
-      inactive (data) {
-        let width = data
-        $('.main__container').animate({left: width + 'px'})
-        $('.sidebar').animate({width: width + 'px'})
-      }
     }
   }
 </script>
@@ -97,12 +83,4 @@
     z-index 1
     color rgba(0,0,0,.65)
     box-shadow 0 1000px 0 1000px #fff
-    .container
-      padding 20px 50px
-      margin 0 auto
-      background #EFF2F7
-      .footer-main .footer-main-title
-        line-height 1
-        font-size 22px
-        margin 0
 </style>

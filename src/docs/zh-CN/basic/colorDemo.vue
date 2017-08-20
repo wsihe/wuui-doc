@@ -29,7 +29,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../../css/define'
   .page-color
     display block
 </style>

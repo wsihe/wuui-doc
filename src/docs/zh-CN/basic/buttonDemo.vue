@@ -15,7 +15,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../../css/define'
   .page-button
     display block
 </style>
