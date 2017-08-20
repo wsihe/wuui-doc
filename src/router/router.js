@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import index from '@/pages/index'
+import guide from '@/pages/guide'
 import component from '@/pages/component'
 
 Vue.use(Router)
@@ -18,10 +20,12 @@ const router = new Router({
   [{
     path: '/index',
     name: 'index',
-    meta: {
-      title: 'Introduction'
-    },
-    component: home
+    component: index
+  },
+  {
+    path: '/guide',
+    name: 'guide',
+    component: guide
   },
   {
     path: '/',

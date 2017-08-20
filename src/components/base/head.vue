@@ -8,13 +8,13 @@
           <!--el-input(placeholder="请输入组件编号或组件名称" icon="search")-->
       ul.header-nav
         li.header-nav__item
-          a 首页
+          router-link(active-class="active" to='index') 首页
         li.header-nav__item
-          a 指南
+          router-link(active-class="active" to='guide') 指南
         li.header-nav__item.active
-          a 组件
-        li.header-nav__item
-          a 中文/En
+          router-link(active-class="active" to='component') 组件
+        //li.header-nav__item
+        //  a 中文/En
 </template>
 
 <script>
@@ -96,6 +96,12 @@
         min-width 72px
         text-align center
         border-bottom-width 3px
+        a
+          text-decoration none
+          color #666
+          display block
+          padding 0 20px
+          opacity .9
         &:hover, &.active
           border-bottom 3px solid #108ee9
           color #108ee9
