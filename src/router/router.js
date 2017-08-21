@@ -7,14 +7,13 @@ import component from '@/pages/component'
 Vue.use(Router)
 
 // const breadcrumb = r => require.ensure([], () => r(require('@/docs/zh-CN/breadcrumb.md')), 'breadcrumb')
-const introduce = r => require.ensure([], () => r(require('@/docs/zh-CN/introduce.md')), 'introduce')
-const colorDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/basic/colorDemo')), 'colorDemo')
-const buttonDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/basic/buttonDemo')), 'buttonDemo')
-const switchDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/form/switchDemo')), 'switchDemo')
-const paginationDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/data/paginationDemo')), 'paginationDemo')
-const messageDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/notice/messageDemo')), 'messageDemo')
-const collapseDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/others/collapseDemo')), 'collapseDemo')
-// const login = r => require.ensure([], () => r(require('@/docs/zh-CN/login/login')), 'login')
+const introduce = r => require.ensure([], () => r(require('@/docs/zh-CN/introduce')), 'introduce')
+const colorMd = r => require.ensure([], () => r(require('@/docs/zh-CN//color')), 'colorMd')
+const buttonMd = r => require.ensure([], () => r(require('@/docs/zh-CN//button')), 'buttonMd')
+const switchMd = r => require.ensure([], () => r(require('@/docs/zh-CN/switch')), 'switchMd')
+const paginationMd = r => require.ensure([], () => r(require('@/docs/zh-CN/pagination')), 'paginationMd')
+const messageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/message')), 'messageMd')
+const collapseMd = r => require.ensure([], () => r(require('@/docs/zh-CN/collapse')), 'collapseMd')
 const router = new Router({
   mode: 'history',
   routes:
@@ -45,52 +44,52 @@ const router = new Router({
         component: introduce
       },
       {
-        path: '/colorDemo',
-        name: 'colorDemo',
+        path: '/colorMd',
+        name: 'colorMd',
         meta: {
           title: 'Color-色彩'
         },
-        component: colorDemo
+        component: colorMd
       },
       {
-        path: '/buttonDemo',
-        name: 'buttonDemo',
+        path: '/buttonMd',
+        name: 'buttonMd',
         meta: {
           title: 'Button-按钮'
         },
-        component: buttonDemo
+        component: buttonMd
       },
       {
-        path: '/switchDemo',
-        name: 'switchDemo',
+        path: '/switchMd',
+        name: 'switchMd',
         meta: {
           title: 'Switch-开关'
         },
-        component: switchDemo
+        component: switchMd
       },
       {
-        path: '/paginationDemo',
-        name: 'paginationDemo',
+        path: '/paginationMd',
+        name: 'paginationMd',
         meta: {
           title: 'Pagination-分页'
         },
-        component: paginationDemo
+        component: paginationMd
       },
       {
-        path: '/messageDemo',
-        name: 'messageDemo',
+        path: '/messageMd',
+        name: 'messageMd',
         meta: {
           title: 'Message-消息'
         },
-        component: messageDemo
+        component: messageMd
       },
       {
-        path: '/collapseDemo',
-        name: 'collapseDemo',
+        path: '/collapseMd',
+        name: 'collapseMd',
         meta: {
           title: 'Collapse-折叠'
         },
-        component: collapseDemo
+        component: collapseMd
       }]
   }]
 })

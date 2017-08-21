@@ -11,13 +11,13 @@
       "menuItem": [
         {
           "label": "安装",
-          "url": "colorDemo",
+          "url": "colorMd",
           "index": null,
           "menuItem": null
         },
         {
           "label": "使用",
-          "url": "buttonDemo",
+          "url": "buttonMd",
           "index": null,
           "menuItem": null
         }
@@ -31,13 +31,13 @@
       "menuItem": [
         {
           "label": "Color 色彩",
-          "url": "colorDemo",
+          "url": "colorMd",
           "index": null,
           "menuItem": null
         },
         {
           "label": "Button 按钮",
-          "url": "buttonDemo",
+          "url": "buttonMd",
           "index": null,
           "menuItem": null
         }
@@ -63,7 +63,7 @@
         },
         {
           "label": "Switch 开关",
-          "url": "switchDemo",
+          "url": "switchMd",
           "index": null,
           "menuItem": null
         },
@@ -83,7 +83,7 @@
       "menuItem": [
         {
           "label": "Pagination 分页",
-          "url": "paginationDemo",
+          "url": "paginationMd",
           "index": null,
           "menuItem": null
         }
@@ -97,7 +97,7 @@
       "menuItem": [
         {
           "label": "Message 消息",
-          "url": "messageDemo",
+          "url": "messageMd",
           "index": null,
           "menuItem": null
         },
@@ -155,7 +155,7 @@
         },
         {
           "label": "Collapse 折叠面板",
-          "url": "collapseDemo",
+          "url": "collapseMd",
           "index": null,
           "menuItem": null
         }
