@@ -2,8 +2,8 @@
   .sidebar
     transition(name="slide-fade" mode="out-in")
       .sidebar-flex(v-if="show" key="flex")
-        .sidebar__item
-          i.iconfont.icon-zhankai(@click="showMenu()")
+        .sidebar__item(@click.stop="showMenu()")
+          i.iconfont.icon-zhankai
         .sidebar__item(v-for="(menu, index) in menuList", @mouseenter = "focus(menu)", @mouseleave = "focus(menu)" v-cloak)
           i.icon.iconfont(:class="[menu.icon]")
           transition(name="fade")
