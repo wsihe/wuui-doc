@@ -3,9 +3,9 @@
     transition(name="slide-fade" mode="out-in")
       .sidebar-flex(v-if="show" key="flex")
         .sidebar__item
-          i.icon.icon-sider-expand(@click="showMenu()")
+          i.iconfont.icon-zhankai(@click="showMenu()")
         .sidebar__item(v-for="(menu, index) in menuList", @mouseenter = "focus(menu)", @mouseleave = "focus(menu)" v-cloak)
-          i.icon(:class="[menu.icon]")
+          i.icon.iconfont(:class="[menu.icon]")
           transition(name="fade")
             ul.menu(v-show="menu.active")
               li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
@@ -15,13 +15,13 @@
           .sidebar__parent(@click.stop="onHomeMenuClick()")
             i.icon
             span Wuui1.0.0
-            .sidebar__item_nav
-              i.icon.icon-sider-flex(@click.stop="showMenu()")
+            .sidebar__item_nav(@click.stop="showMenu()")
+              i.iconfont.icon-shousuo
         .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
           .sidebar__parent(@click.stop="onMenuClick(menu, index)")
-            i.icon(:class="[menu.icon]")
+            i.icon.iconfont(:class="[menu.icon]")
             span {{menu.name}}
-            .icon-expand
+            i.iconfont.icon-expand
           ul.menu(v-show="!menu.active")
             li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
               span {{childMenu.name}}
@@ -172,6 +172,7 @@
 
 <style lang="stylus" scoped>
   @import '../../css/define';
+  @import '../../assets/fonts/iconfont.css';
   .sidebar
     font-family Lato,Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
     .sidebar-flex
@@ -182,19 +183,16 @@
       .sidebar__item
         position relative
         height 40px
+        text-align center
         line-height 40px
         background #D3DCE6
         border-bottom 1px solid $color_dark_white
         &:first-child
-          &:hover
-            background #E5E9F2
+          as-button()
         &:hover, &.active
           background #E5E9F2
         .icon
-          padding 18px
-          height 22px
-          display inline-block
-          as-button()
+          opacity .6
         .menu
           position absolute
           top 0px
@@ -213,22 +211,16 @@
       position relative
       top 0
       width 200px
-      .sidebar__parent .sidebar__item_nav
+      .sidebar__item_nav
         position absolute
         top 0
         right 0
         width 51px
-        height 50px
         line-height 50px
-        color $color_white
         background #fff
         z-index 999
-        .icon
-          display inline-block
-          margin-left 10px
-          padding 14px 15px
-          height 22px
-          as-button()
+        .icon-shousuo
+          margin-left 20px
       .sidebar__item
         border-bottom 1px solid #EFF2F7
       .sidebar__parent
@@ -241,23 +233,22 @@
         as-button()
         background #fff
         .icon
-          position relative
-          top 5px
-          margin-right 18px
-          width 22px
-          height 22px
+          margin-right 20px
           display inline-block
         .icon-expand
-          display block
           position absolute
           right 15px
-          top 21px
-          set-icon 15px 8px "sidebar/icon-menu-collapse.png"
+          top 0
+          opacity .5
       .sidebar__item.active
         .sidebar__parent
           background $color_white
           .icon-expand
-            set-icon 15px 8px "sidebar/icon-menu-expand.png"
+            -moz-transform scaleY(-1)
+            -webkit-transform scaleY(-1)
+            -o-transform scaleY(-1)
+            transform scaleY(-1)
+            filter FlipV
       .menu
         background #fff
         &__list
@@ -282,32 +273,6 @@
               left 32px
               bottom 15px
               background #0f75b7
-  // 设置图标, 同时指定元素大小
-  set-icon-pos(width, height, image)
-    set-icon(width, height, image)
-    background-position center center
-  .icon-sider-flex
-    set-icon-pos 21px 20px "sidebar/icon-sider-flex-active.png"
-  .icon-sider-expand
-    set-icon-pos 21px 20px "sidebar/icon-sider-expand-active.png"
-  .icon-assets
-    set-icon-pos 18px 20px "sidebar/icon-assets.png"
-  .icon-customer
-    set-icon-pos 18px 20px "sidebar/icon-customer.png"
-  .icon-product
-    set-icon-pos 18px 20px "sidebar/icon-product.png"
-  .icon-report
-    set-icon-pos 18px 20px "sidebar/icon-report.png"
-  .icon-market
-    set-icon-pos 18px 20px "sidebar/icon-market.png"
-  .icon-wallet
-    set-icon-pos 18px 20px "sidebar/icon-wallet.png"
-  .icon-model
-    set-icon-pos 18px 20px "sidebar/icon-model.png"
-  .icon-performance
-    set-icon-pos 18px 20px "sidebar/icon-performance.png"
-  .icon-system
-    set-icon-pos 18px 20px "sidebar/icon-system.png"
   .slide-fade-enter-active
     transition all .3s ease
   .slide-fade-leave-active

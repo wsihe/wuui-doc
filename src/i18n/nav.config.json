@@ -4,7 +4,7 @@
   "index": null,
   "menuItem": [
     {
-      "icon": "icon-customer",
+      "icon": "icon-start",
       "label": "快速开始",
       "url": null,
       "index": null,
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "icon": "icon-customer",
+      "icon": "icon-basic",
       "label": "Basic",
       "url": null,
       "index": null,
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "icon": "icon-model",
+      "icon": "icon-form",
       "label": "Form",
       "url": null,
       "index": null,
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "icon": "icon-product",
+      "icon": "icon-data",
       "label": "Data",
       "url": null,
       "index": null,
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "icon": "icon-report",
+      "icon": "icon-notice",
       "label": "Notice",
       "url": null,
       "index": null,
@@ -110,7 +110,7 @@
       ]
     },
     {
-      "icon": "icon-market",
+      "icon": "icon-navigation",
       "label": "Navigation",
       "url": null,
       "index": null,
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "icon": "icon-performance",
+      "icon": "icon-other",
       "label": "Others",
       "url": null,
       "index": null,
