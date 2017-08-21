@@ -5,8 +5,10 @@
       side-bar(v-on:data="inactive")
       .main__container
         main-tab
-        tab-manager
-          router-view
+        .page.page-component.page-container
+          .content
+            tab-manager
+              router-view
     main-footer
 </template>
 

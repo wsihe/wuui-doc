@@ -6,7 +6,8 @@ import component from '@/pages/component'
 
 Vue.use(Router)
 
-const home = r => require.ensure([], () => r(require('@/docs/zh-CN/home')), 'home')
+// const breadcrumb = r => require.ensure([], () => r(require('@/docs/zh-CN/breadcrumb.md')), 'breadcrumb')
+const introduce = r => require.ensure([], () => r(require('@/docs/zh-CN/introduce.md')), 'introduce')
 const colorDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/basic/colorDemo')), 'colorDemo')
 const buttonDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/basic/buttonDemo')), 'buttonDemo')
 const switchDemo = r => require.ensure([], () => r(require('@/docs/zh-CN/form/switchDemo')), 'switchDemo')
@@ -41,7 +42,7 @@ const router = new Router({
         meta: {
           title: 'Introduce'
         },
-        component: home
+        component: introduce
       },
       {
         path: '/colorDemo',
