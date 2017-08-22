@@ -52,8 +52,9 @@
         width 415px
         height 45px
         margin-top 10px
-        background url("../../assets/logo.png") no-repeat
-        background-size 50%
+        background url("../../assets/logo_wuui.png") no-repeat
+        background-size 32%
+        opacity 0.8
     &__search
       float left
       margin-top 15px
