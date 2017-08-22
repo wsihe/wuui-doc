@@ -16,6 +16,8 @@
 
 .icon-github:before { content: "\e8ee"; }
 
+.icon-start:before { content: "\e654"; }
+
 .icon-form:before { content: "\e62b"; }
 
 .icon-notice:before { content: "\e6a5"; }
