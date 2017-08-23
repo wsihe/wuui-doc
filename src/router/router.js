@@ -7,91 +7,114 @@ import component from '@/pages/component'
 Vue.use(Router)
 
 // const breadcrumb = r => require.ensure([], () => r(require('@/docs/zh-CN/breadcrumb.md')), 'breadcrumb')
+const contribution = r => require.ensure([], () => r(require('@/docs/zh-CN/contribution')), 'contribution')
+
 const introduce = r => require.ensure([], () => r(require('@/docs/zh-CN/introduce')), 'introduce')
-const colorMd = r => require.ensure([], () => r(require('@/docs/zh-CN//color')), 'colorMd')
-const buttonMd = r => require.ensure([], () => r(require('@/docs/zh-CN//button')), 'buttonMd')
+const installMd = r => require.ensure([], () => r(require('@/docs/zh-CN/install')), 'installMd')
+const usageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/usage')), 'usageMd')
+const colorMd = r => require.ensure([], () => r(require('@/docs/zh-CN/color')), 'colorMd')
+const buttonMd = r => require.ensure([], () => r(require('@/docs/zh-CN/button')), 'buttonMd')
 const switchMd = r => require.ensure([], () => r(require('@/docs/zh-CN/switch')), 'switchMd')
 const paginationMd = r => require.ensure([], () => r(require('@/docs/zh-CN/pagination')), 'paginationMd')
 const messageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/message')), 'messageMd')
 const collapseMd = r => require.ensure([], () => r(require('@/docs/zh-CN/collapse')), 'collapseMd')
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes:
   [{
-    path: '/',
+    path: '/index',
     name: 'index',
     component: index
   },
   {
     path: '/guide',
-    name: 'guide',
+    redirect: '/guide/contribution',
     component: guide,
     children: [
       {
-        path: '/guide',
-        redirect: '/switchMd'
+        path: 'usage',
+        name: 'guide-usage',
+        component: usageMd
       },
       {
-        path: '/switchMd',
-        name: 'switchMd',
-        meta: {
-          title: 'Switch-开关'
-        },
-        component: switchMd
+        path: 'contribution',
+        name: 'guide-contribution',
+        component: contribution
       }
     ]
   },
   {
     path: '/component',
+    redirect: '/component/introduce',
     component: component,
     children: [
       {
-        path: '/component',
-        redirect: '/introduce'
-      },
-      {
-        path: '/introduce',
-        name: 'introduce',
+        path: 'introduce',
+        name: 'component-introduce',
         meta: {
           title: 'Introduce'
         },
         component: introduce
       },
       {
-        path: '/color',
-        name: 'colorMd',
+        path: 'install',
+        name: 'component-install',
+        meta: {
+          title: '安装'
+        },
+        component: installMd
+      },
+      {
+        path: 'usage',
+        name: 'component-usage',
+        meta: {
+          title: '使用'
+        },
+        component: usageMd
+      },
+      {
+        path: 'color',
+        name: 'component-color',
         meta: {
           title: 'Color-色彩'
         },
         component: colorMd
       },
       {
-        path: '/button',
-        name: 'buttonMd',
+        path: 'button',
+        name: 'component-button',
         meta: {
           title: 'Button-按钮'
         },
         component: buttonMd
       },
       {
-        path: '/paginationMd',
-        name: 'paginationMd',
+        path: 'pagination',
+        name: 'component-pagination',
         meta: {
           title: 'Pagination-分页'
         },
         component: paginationMd
       },
       {
-        path: '/messageMd',
-        name: 'messageMd',
+        path: 'message',
+        name: 'component-message',
         meta: {
           title: 'Message-消息'
         },
         component: messageMd
       },
       {
-        path: '/collapseMd',
-        name: 'collapseMd',
+        path: 'switch',
+        name: 'switch',
+        meta: {
+          title: 'Switch-开关'
+        },
+        component: switchMd
+      },
+      {
+        path: 'collapse',
+        name: 'component-collapse',
         meta: {
           title: 'Collapse-折叠'
         },
@@ -99,8 +122,8 @@ const router = new Router({
       }]
   },
   {
-    path: '*',
-    redirect: '/'
+    path: '',
+    redirect: '/index'
   }]
 })
 

@@ -3,13 +3,13 @@
     .header-navbar
       .header-navbar__logo
         a.logo(href='javascript:void(0)')
-      <!--.header-navbar__collapse-->
-        <!--.header-navbar__search-->
-          <!--el-input(placeholder="请输入组件编号或组件名称" icon="search")-->
+      .header-navbar__collapse
+        .header-navbar__search
+          input(placeholder="搜索组件..." icon="search")
       .header-lang 中文
       ul.header-nav
         li.header-nav__item(v-for="nav in navList")
-          router-link(active-class="active", :to='nav.path' exact) {{nav.name}}
+          router-link(active-class="active", :to='nav.path') {{nav.name}}
 </template>
 
 <script>
@@ -47,16 +47,22 @@
       padding 2px 0 0
       .logo
         display block
-        width 415px
-        height 45px
+        width 200px
+        height 79px
         margin-top 10px
         background url("../../assets/logo_wuui.png") no-repeat
-        background-size 32%
+        background-size 65%
         opacity 0.8
     &__search
       float left
-      margin-top 15px
+      margin-top 30px
       width 220px
+      padding-left 10px
+      border-left 1px solid #e9e9e9
+      input
+        border none
+        background none
+
     .header-nav
       border 0
       float right
