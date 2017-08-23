@@ -2,9 +2,11 @@
   .main
     main-nav
     .main__content.clearfix
-      .sidebar
+      side-bar(type-name="guide")
       .main__container
-        router-view
+        .page.page-component.page-container
+          .content
+            router-view
     main-footer
 </template>
 

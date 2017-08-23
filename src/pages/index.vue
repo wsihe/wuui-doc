@@ -1,22 +1,27 @@
 <template lang="pug">
   .home-page
+    main-nav
     .home-page__logo
       <!--img.w-logo-image(src="../assets/images/w-logo-blue.png")-->
     h1.home-page__title Wuui
     h2.home-page__sub-title 基于 Vue 2.0 和 Ant Design 的 UI 组件库
     .home-button
       .btn
-        router-link(active-class="active" to='guide') 设计规范
+        router-link(to='guide') 设计规范
       .btn
-        router-link(active-class="active" to='component') 开发指引
+        router-link(to='component') 开发指引
 </template>
 
 <script>
+  import mainNav from '@/components/base/head'
   export default {
     data () {
       return {
         show: true
       }
+    },
+    components: {
+      mainNav
     },
     created () {
     },
@@ -25,17 +30,25 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   @import '../css/define';
   .home-page
-    padding-top 50px
     height 100%
     background url("../assets/images/bg.png") no-repeat
     background-size 100%
+    .header-navbar
+      position fixed
+      z-index 999
+      background rgba(0, 0, 0, 0.2)
+      border-bottom 1px solid transparent
+      transition border .5s cubic-bezier(0.455, 0.03, 0.515, 0.955), background .5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      a, .header-lang
+        color #fff
+        transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
   .home-page__logo
     margin 0 auto
     width 120px
-    height 120px
+    height 150px
     line-height 100px
     text-align center
     color #7e57c2

@@ -8,10 +8,10 @@
           i.icon.iconfont(:class="[menu.icon]")
           transition(name="fade")
             ul.menu(v-show="menu.active")
-              li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
-                span {{childMenu.name}}
+              li.menu__list(v-for="childMenu in menu.children")
+                router-link(active-class="active", :to='childMenu.url'  tag="span" exact) {{childMenu.name}}
       .sidebar-expand(v-else  key="expand")
-        .sidebar__item(:class="{active:homeTabActive}")
+        .sidebar__item(:class="{active:homeTabActive}" v-if="isComponentNav" )
           .sidebar__parent(@click.stop="onHomeMenuClick()")
             i.icon
             span Wuui1.0.0
@@ -21,16 +21,30 @@
           .sidebar__parent(@click.stop="onMenuClick(menu, index)")
             i.icon.iconfont(:class="[menu.icon]")
             span {{menu.name}}
-            i.iconfont.icon-expand
+            i.iconfont.icon-expand(v-if="isComponentNav")
           ul.menu(v-show="!menu.active")
-            li.menu__list(v-for="(childMenu, index) in menu.children", @click.stop="onMenuClick(childMenu, index, menu)", :class="{active: childMenu.active}")
-              span {{childMenu.name}}
+            li.menu__list(v-for="childMenu in menu.children")
+              router-link(active-class="active", :to='childMenu.url'  tag="span" exact) {{childMenu.name}}
   </template>
 
 <script>
   import navList from '@/i18n/nav.config.json'
+  import guideList from '@/i18n/guide.config.json'
   import {firstLowerCase} from '@/common/utils'
+
+  const MAX_LEFT_WIDTH = 200
+  const MIN_LEFT_WIDTH = 40
   export default {
+    props: {
+      typeName: {
+        type: String,
+        default: 'sider'
+      },
+      base: {
+        type: String,
+        default: ''
+      }
+    },
     data () {
       return {
         show: false,
@@ -40,17 +54,26 @@
         activeIndex: -1
       }
     },
+    computed: {
+      isComponentNav () {
+        return this.typeName === 'sider'
+      }
+    },
     mounted () {
-      this.handleMenuData(navList)
+      if (this.isComponentNav) {
+        this.handleMenuData(navList)
+      } else {
+        this.handleMenuData(guideList)
+      }
     },
     methods: {
       showMenu () {
         this.show = !this.show
         let width = 0
         if (this.show) {
-          width = 40
+          width = MIN_LEFT_WIDTH
         } else {
-          width = 200
+          width = MAX_LEFT_WIDTH
         }
         this.$emit('data', width)
         this.menuList.forEach(function (firstMenu) {
@@ -202,11 +225,14 @@
           z-index 9999
           &__list
             position relative
-            padding 0 32px
             font-size 14px
             white-space nowrap
-            &:hover
-              background #EFF2F7
+            span
+              display inline-block
+              padding 0 32px
+              as-button()
+              &:hover
+                background #EFF2F7
     .sidebar-expand
       position relative
       top 0
@@ -215,8 +241,8 @@
         position absolute
         top 0
         right 0
-        width 51px
-        line-height 50px
+        width 50px
+        line-height 49px
         background #fff
         z-index 999
         .icon-shousuo
@@ -226,8 +252,8 @@
       .sidebar__parent
         position relative
         padding 0 20px 0 15px
-        color: rgba(0,0,0,.65);
-        font-size 16px
+        color rgba(0,0,0,.65)
+        font-size 14px
         height 50px
         line-height 50px
         as-button()
@@ -253,26 +279,29 @@
         background #fff
         &__list
           position relative
-          padding 0 15px 0 52px
-          font-size 14px
-          color: rgba(0,0,0,.65);
-          height 40px
-          line-height 40px
-          white-space nowrap
           overflow hidden
-          as-button()
-          &:hover, &.active
-            color #2f92d1
-            &::before
-              position absolute
-              content ""
-              width 8px
-              height 8px
-              border 1px solid #0f75b7
-              border-radius 100%
-              left 32px
-              bottom 15px
-              background #0f75b7
+          span
+            display inline-block
+            width 100%
+            padding-left 52px
+            font-size 14px
+            color rgba(0,0,0,.65)
+            height 40px
+            line-height 40px
+            white-space nowrap
+            as-button()
+            &:hover, &.active
+              color #2f92d1
+              &::before
+                position absolute
+                content ""
+                width 6px
+                height 6px
+                border 1px solid #2f92d1
+                border-radius 100%
+                left 34px
+                bottom 17px
+                background #2f92d1
   .slide-fade-enter-active
     transition all .3s ease
   .slide-fade-leave-active

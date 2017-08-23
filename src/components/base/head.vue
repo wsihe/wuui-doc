@@ -8,34 +8,30 @@
           <!--el-input(placeholder="请输入组件编号或组件名称" icon="search")-->
       .header-lang 中文
       ul.header-nav
-        li.header-nav__item
-          router-link(active-class="active" to='index') 首页
-        li.header-nav__item
-          router-link(active-class="active" to='guide') 指南
-        li.header-nav__item
-          router-link(active-class="active" to='component') 组件
-        //li.header-nav__item
-        //  a 中文/En
+        li.header-nav__item(v-for="nav in navList")
+          router-link(active-class="active", :to='nav.path' exact) {{nav.name}}
 </template>
 
 <script>
+  import navConfig from '@/i18n/main.nav.json'
   export default {
     data () {
       return {
+        navList: []
       }
     },
     created () {
-    },
-    mounted () {
-    },
-    computed: {
+      this.handleTitleData(navConfig)
     },
     methods: {
+      handleTitleData (data) {
+        this.navList = data['zh-CN']
+      }
     }
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   .header-navbar
     transition opacity .5s
     background #fff
@@ -43,6 +39,8 @@
     margin-bottom 24px
     padding 0 48px
     width 100%
+    a
+     color #666
     &__logo
       float left
       height auto
@@ -75,7 +73,6 @@
         border-bottom-width 3px
         a
           text-decoration none
-          color #666
           display block
           padding 0 20px
           opacity .9

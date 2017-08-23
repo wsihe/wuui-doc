@@ -18,46 +18,18 @@ const router = new Router({
   mode: 'history',
   routes:
   [{
-    path: '/index',
+    path: '/',
     name: 'index',
     component: index
   },
   {
     path: '/guide',
     name: 'guide',
-    component: guide
-  },
-  {
-    path: '/',
-    component: component,
+    component: guide,
     children: [
       {
-        path: '',
-        redirect: '/component'
-      },
-      {
-        path: '/component',
-        name: 'home',
-        meta: {
-          title: 'Introduce'
-        },
-        component: introduce
-      },
-      {
-        path: '/colorMd',
-        name: 'colorMd',
-        meta: {
-          title: 'Color-色彩'
-        },
-        component: colorMd
-      },
-      {
-        path: '/buttonMd',
-        name: 'buttonMd',
-        meta: {
-          title: 'Button-按钮'
-        },
-        component: buttonMd
+        path: '/guide',
+        redirect: '/switchMd'
       },
       {
         path: '/switchMd',
@@ -66,6 +38,40 @@ const router = new Router({
           title: 'Switch-开关'
         },
         component: switchMd
+      }
+    ]
+  },
+  {
+    path: '/component',
+    component: component,
+    children: [
+      {
+        path: '/component',
+        redirect: '/introduce'
+      },
+      {
+        path: '/introduce',
+        name: 'introduce',
+        meta: {
+          title: 'Introduce'
+        },
+        component: introduce
+      },
+      {
+        path: '/color',
+        name: 'colorMd',
+        meta: {
+          title: 'Color-色彩'
+        },
+        component: colorMd
+      },
+      {
+        path: '/button',
+        name: 'buttonMd',
+        meta: {
+          title: 'Button-按钮'
+        },
+        component: buttonMd
       },
       {
         path: '/paginationMd',
@@ -91,6 +97,10 @@ const router = new Router({
         },
         component: collapseMd
       }]
+  },
+  {
+    path: '*',
+    redirect: '/'
   }]
 })
 

@@ -5,7 +5,7 @@
 export const tabManager = function (vue, store, router, options) {
   var moduleName = (options || {}).moduleName || 'route'
   var tabs = [{
-    name: 'home',
+    name: 'introduce',
     title: 'Introduce',
     active: true
   }]

@@ -46,7 +46,6 @@
 <style lang="stylus" scoped>
   @import '../../css/define'
   .main__tab
-    padding 0 20px
     background #F9FAFC
     height 32px
     overflow hidden

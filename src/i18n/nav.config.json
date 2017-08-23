@@ -11,13 +11,13 @@
       "menuItem": [
         {
           "label": "安装",
-          "url": "colorMd",
+          "url": "/color",
           "index": null,
           "menuItem": null
         },
         {
           "label": "使用",
-          "url": "buttonMd",
+          "url": "/button",
           "index": null,
           "menuItem": null
         }
