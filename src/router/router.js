@@ -7,6 +7,7 @@ import component from '@/pages/component'
 Vue.use(Router)
 
 // const breadcrumb = r => require.ensure([], () => r(require('@/docs/zh-CN/breadcrumb.md')), 'breadcrumb')
+const design = r => require.ensure([], () => r(require('@/docs/zh-CN/design')), 'design')
 const contribution = r => require.ensure([], () => r(require('@/docs/zh-CN/contribution')), 'contribution')
 
 const introduce = r => require.ensure([], () => r(require('@/docs/zh-CN/introduce')), 'introduce')
@@ -18,8 +19,8 @@ const switchMd = r => require.ensure([], () => r(require('@/docs/zh-CN/switch'))
 const paginationMd = r => require.ensure([], () => r(require('@/docs/zh-CN/pagination')), 'paginationMd')
 const messageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/message')), 'messageMd')
 const collapseMd = r => require.ensure([], () => r(require('@/docs/zh-CN/collapse')), 'collapseMd')
+
 const router = new Router({
-  // mode: 'history',
   routes:
   [{
     path: '/index',
@@ -28,13 +29,13 @@ const router = new Router({
   },
   {
     path: '/guide',
-    redirect: '/guide/contribution',
+    redirect: '/guide/design',
     component: guide,
     children: [
       {
-        path: 'usage',
-        name: 'guide-usage',
-        component: usageMd
+        path: 'design',
+        name: 'guide-design',
+        component: design
       },
       {
         path: 'contribution',

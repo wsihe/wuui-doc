@@ -5,7 +5,7 @@
       side-bar(v-on:data="inactive")
       .main__container
         main-tab
-        .page.page-component.page-container
+        .page.markdown
           .content
             tab-manager
               router-view

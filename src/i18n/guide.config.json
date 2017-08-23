@@ -5,18 +5,13 @@
   "menuItem": [
     {
       "icon": "",
-      "label": "介绍",
-      "url": null,
-      "index": null
-    },{
-      "icon": "",
       "label": "设计原则",
-      "url": null,
+      "url": "design",
       "index": null
     },{
       "icon": "",
       "label": "参与贡献",
-      "url": null,
+      "url": "contribution",
       "index": null
     }
   ]

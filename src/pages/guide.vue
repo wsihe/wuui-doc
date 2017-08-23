@@ -4,7 +4,7 @@
     .main__content.clearfix
       side-bar(type-name="guide")
       .main__container
-        .page.page-component.page-container
+        .page.markdown
           .content
             router-view
     main-footer
