@@ -1,18 +1,23 @@
 {
-  "label": "Wuui",
-  "url": null,
-  "index": null,
-  "menuItem": [
+  "zh-CN": [
     {
-      "icon": "",
-      "label": "设计原则",
-      "url": "design",
-      "index": null
-    },{
-      "icon": "",
-      "label": "参与贡献",
-      "url": "contribution",
-      "index": null
+      "path": "design",
+      "name": "设计原则"
+    },
+    {
+      "path": "contribution",
+      "name": "参与贡献"
+    }
+  ],
+  "en-US": [
+    {
+      "path": "design",
+      "name": "Design"
+    },
+    {
+      "path": "contribution",
+      "name": "Contribution"
     }
   ]
 }
+

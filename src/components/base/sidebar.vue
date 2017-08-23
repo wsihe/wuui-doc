@@ -29,7 +29,6 @@
 
 <script>
   import navList from '@/i18n/nav.config.json'
-  import guideList from '@/i18n/guide.config.json'
   import {firstLowerCase} from '@/common/utils'
 
   const MAX_LEFT_WIDTH = 200
@@ -62,8 +61,6 @@
     mounted () {
       if (this.isComponentNav) {
         this.handleMenuData(navList)
-      } else {
-        this.handleMenuData(guideList)
       }
     },
     methods: {
