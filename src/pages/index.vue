@@ -47,6 +47,10 @@
         background url("../assets/logo_wuui_w.png") no-repeat
         background-size 65%
         opacity .8
+      .select-box
+        font-size 14px
+        color #fff
+        opacity .6
   .home-page__logo
     margin 0 auto
     width 120px

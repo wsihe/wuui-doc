@@ -1,5 +1,15 @@
 ## 参与贡献
 
+### 开发环境搭建
+
+首先你需要 Node.js 4+ 和 NPM 3+
+
+```
+  git clone https://github.com/wsihe/wuui.git
+  npm run dev
+
+  # open http://localhost:8088
+```
 ### 开发规范
 
 - 使用最新ES2015语法，具体如下：

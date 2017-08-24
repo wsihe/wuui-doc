@@ -5,7 +5,7 @@
         a.logo(href='javascript:void(0)')
       .header-navbar__collapse
         .header-navbar__search
-          input(placeholder="搜索组件..." icon="search")
+           .select-box 搜索组件...
       .header-lang 中文
       ul.header-nav
         li.header-nav__item(v-for="nav in navList")
@@ -62,7 +62,10 @@
       input
         border none
         background none
-
+    .select-box
+      font-size 14px
+      color #666
+      opacity .8
     .header-nav
       border 0
       float right
