@@ -9,9 +9,9 @@
           transition(name="fade")
             ul.menu(v-show="menu.active")
               li.menu__list(v-for="childMenu in menu.children")
-                router-link(active-class="active", :to='childMenu.url'  tag="span" exact) {{childMenu.name}}
+                router-link(active-class="active", :to='childMenu.path'  tag="span" exact) {{childMenu.name}}
       .sidebar-expand(v-else  key="expand")
-        .sidebar__item(:class="{active:homeTabActive}" v-if="isComponentNav" )
+        .sidebar__item(v-if="isComponentNav" )
           .sidebar__parent(@click.stop="onHomeMenuClick()")
             i.icon
             span Wuui1.0.0
@@ -24,12 +24,11 @@
             i.iconfont.icon-expand(v-if="isComponentNav")
           ul.menu(v-show="!menu.active")
             li.menu__list(v-for="childMenu in menu.children")
-              router-link(active-class="active", :to='childMenu.url'  tag="span" exact) {{childMenu.name}}
+              router-link(active-class="active", :to='childMenu.path'  tag="span" exact) {{childMenu.name}}
   </template>
 
 <script>
   import navList from '@/i18n/nav.config.json'
-  import {firstLowerCase} from '@/common/utils'
 
   const MAX_LEFT_WIDTH = 200
   const MIN_LEFT_WIDTH = 40
@@ -47,8 +46,6 @@
     data () {
       return {
         show: false,
-        isEmpty: false,
-        homeTabActive: false,
         menuList: [],
         activeIndex: -1
       }
@@ -77,90 +74,30 @@
           firstMenu.active = false
         })
       },
+
       focus (menu) {
         menu.active = !menu.active
       },
+
       handleMenuData (ret) {
         if (!ret || !ret.menuItem || !ret.menuItem.length) {
-          this.isEmpty = true
           return
         }
-        // 拷贝数据，重新生成树形节点。
-        var menuList = this.buildMenuTree(ret.menuItem, null)
-        // 移除没有子节点的菜单？
+        var menuList = this.buildMenuTree(ret.menuItem)
         this.menuList = menuList
-        this.isEmpty = menuList.length === 0
-        this.activeIndex = -1
       },
 
       onHomeMenuClick () {
-        this.inactive()
-        this.homeTabActive = true
-        this.$router.push({name: 'home'})
+        this.$router.push({path: 'introduce'})
       },
 
-      onMenuClick (menu, index, parent) {
+      onMenuClick (menu) {
         if (!menu.leaf) {
-          // 只折叠子菜单
-          this.homeTabActive = false
-          if (this.activeIndex === index) {
-            menu.active = !menu.active
-            if (!menu.active) {
-              this.activeIndex = -1
-            }
-          } else {
-//            this.inactive()
-            menu.active = true
-            this.activeIndex = index
-          }
-          return
+          menu.active = !menu.active
         }
-        // 叶子节点，打开指定页面
-        var pageName = menu.url
-        if (!pageName) {
-          alert('功能未实现，敬请期待！')
-          return
-        }
-        try {
-          this.$router.push({name: pageName})
-        } catch (error) {
-//          console.error('[ROUTER] Not found page :' + pageName)
-          this.open()
-        }
-        if (parent) {
-          parent.children.forEach(function (childMenu) {
-            if (childMenu !== menu) {
-              childMenu.active = false
-            }
-          })
-        }
-        menu.active = true
-        this.inactiveSubMenu(parent, menu)
       },
 
-      inactive () {
-        if (this.activeIndex === -1) {
-          return
-        }
-        var menu = this.menuList[this.activeIndex]
-        menu.active = false
-        this.activeIndex = -1
-      },
-
-      inactiveSubMenu (parent, menu) {
-        this.menuList.forEach(function (firstMenu) {
-          if (firstMenu === parent) {
-            return
-          }
-          firstMenu.children.forEach(function (childMenu) {
-            if (childMenu !== menu) {
-              childMenu.active = false
-            }
-          })
-        })
-      },
-
-      buildMenuTree (itemList, parent) {
+      buildMenuTree (itemList) {
         let _this = this
         if (!itemList || !itemList.length) {
           return []
@@ -168,23 +105,15 @@
         var list = []
         itemList.forEach(function (item) {
           var menu = {}
-          menu.parentId = parent ? parent.id : null
-          menu.name = item.label
-          menu.url = firstLowerCase(item.url)
+          menu.name = item.name
+          menu.path = item.path
           menu.icon = item.icon || 'icon-menu-default'
-          menu.level = parent ? parent.level + 1 : 1 // 当前菜单深度
-          menu.active = false // 表示是否激活
+          menu.active = false
           menu.children = _this.buildMenuTree(item.menuItem, menu)
-          menu.leaf = menu.children.length === 0 // 是否叶子节点
+          menu.leaf = menu.children.length === 0
           list.push(menu)
         })
         return list
-      },
-      open () {
-        this.$message({
-          message: '待添加...',
-          type: 'warning'
-        })
       }
     }
   }
