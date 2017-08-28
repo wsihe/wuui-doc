@@ -23,6 +23,14 @@
       "path": null,
       "menuItem": [
         {
+          "name": "Grid 栅格",
+          "path": "grid"
+        },
+        {
+          "name": "icon 图标",
+          "path": "icon"
+        },
+        {
           "name": "Color 色彩",
           "path": "color"
         },

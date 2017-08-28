@@ -10,35 +10,37 @@
 
   # open http://localhost:8088
 ```
+build:
+
+```
+  npm run build
+```
 ### 开发规范
 
-- 使用最新ES2015语法，具体如下：
- - 正确使用const和let替代var
- - 使用模板字符串`${this.data}`
- - 将工具函数等依赖单独分离，并用import导入
- - 对象字面量缩写、箭头函数
-- 通用工具集可以在src/utils/assist内扩展
-- 在examples/routers内测试组件
+- 使用 ES2015 语法
 
-### 组件
-#### 命名
-- 尽量简单、表意。
-- export出的对象使用驼峰命名，比如Page、ButtonGroup
-- 如组件需要嵌套使用，子组件命名在父组件后加-item，比如timeline及timeline-item
-#### 目录
-- 组件在目录src/components/下，每个组件单独一个目录，目录命名使用小写，入口文件为index.js，导出组件，再由根入口文件src/index.js暴露给使用者
-- 每个组件的文件名使用小写，但与组件的名称一致，比如timeline.vue和timeline-item.vue
-#### 属性
-- 必须规定type或者使用validator进行验证
-- 如果validator验证为几个值中的一个，则使用src/utils/assist内的oneOf函数验证
-- 如果有尺寸的参数size，只能使用smalllarge，默认是适中，则不用写
-### 事件
-#### 命名
-使用on-为前缀，比如on-change
+- CSS 命名采用 BEM 的风格
 
-#### 规范
-$dispatch和$broadcast 替代方案在 src/mixins/emitter.js 内
-嵌套组件之间通信，可以使用$parent和$children，在 src/utils/assist.js 内提供了 findComponentUpward、findComponentDownward、findComponentsDownward 三个方法来向上或向下查找元素，建议组件可以嵌套其它组件时，查询 parent 或 children 使用这三个方法。参考 Radio、Checkbox、Menu 组件的实现。
+- 在examples/test内测试组件
 
-### 其它
-css前缀使用 wu-
+### Issue 规范
+
+- issue 仅用于提交 Bug 或 Feature 相关的内容，其它内容可能会被直接关闭。
+
+- 在提交 issue 之前，请搜索相关内容是否已被提出。
+
+- 请说明 Muse UI 和 Vue 的版本号，并提供操作系统和浏览器信息。推荐使用 JSFiddle 生成在线 demo，这能够更直观地重现问题。
+
+### Pull Request 规范
+
+- 请先 fork 一份到自己的项目下，不要直接在仓库下建分支。
+
+- commit 信息要以[组件名]: 描述信息 的形式填写，例如 appbar: fix xxx bug。
+
+- 不要提交 dist 或 docs 文件夹下的文件
+
+- 执行 npm run build 后可以正确打包文件。
+
+- 提交 PR 前请 rebase，确保 commit 记录的整洁。
+
+- 如果是修复 bug，请在 PR 中给出描述信息
