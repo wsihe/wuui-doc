@@ -7,7 +7,7 @@
     h2.home-page__sub-title 基于 Vue 2.0 和 Ant Design 的 UI 组件库
     .home-button
       router-link(class='btn' to='guide') 设计规范
-      router-link(class='btn' to='component') 开发指引
+      router-link(class='btn' to='component') 组件
 </template>
 
 <script>
@@ -65,21 +65,23 @@
       width 80%
       height 80%
   .home-page__title
-    font-size 3em
+    font-size 5em
     font-weight 700
     color #fff
     text-align center
   .home-page__sub-title
+    margin 20px 0 50px
+    font-size 2em
     text-align center
     color #fff
   .home-button
-    width 200px
-    margin 30px auto
+    width 220px
+    margin 0 auto
     .btn
       display inline-block
-      width 90px
+      width 100px
       font-size 14px
-      line-height 32px
+      line-height 36px
       text-align center
       border-radius 2px
       background #fff
