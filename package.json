@@ -1,6 +1,6 @@
 {
   "name": "wuui-doc",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "A Vue.js project",
   "author": "",
   "private": true,
@@ -10,15 +10,13 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "axios": "^0.16.1",
-    "element-ui": "^1.2.8",
     "highlight.js": "^9.12.0",
     "jquery": "",
     "markdown-it": "^8.3.2",
     "vue": "^2.2.2",
-    "vue-navigation": "^0.2.1",
     "vue-router": "^2.2.0",
-    "vuex": "^2.3.1"
+    "vuex": "^2.3.1",
+    "wuui": "0.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
