@@ -13,6 +13,8 @@ const contribution = r => require.ensure([], () => r(require('@/docs/zh-CN/contr
 const introduce = r => require.ensure([], () => r(require('@/docs/zh-CN/introduce')), 'introduce')
 const installMd = r => require.ensure([], () => r(require('@/docs/zh-CN/install')), 'installMd')
 const usageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/usage')), 'usageMd')
+const gridMd = r => require.ensure([], () => r(require('@/docs/zh-CN/grid')), 'gridMd')
+
 const colorMd = r => require.ensure([], () => r(require('@/docs/zh-CN/color')), 'colorMd')
 const buttonMd = r => require.ensure([], () => r(require('@/docs/zh-CN/button')), 'buttonMd')
 const switchMd = r => require.ensure([], () => r(require('@/docs/zh-CN/switch')), 'switchMd')
@@ -53,7 +55,7 @@ const router = new Router({
         path: 'introduce',
         name: 'component-introduce',
         meta: {
-          title: 'Introduce'
+          title: '简介'
         },
         component: introduce
       },
@@ -72,6 +74,14 @@ const router = new Router({
           title: '使用'
         },
         component: usageMd
+      },
+      {
+        path: 'grid',
+        name: 'component-grid',
+        meta: {
+          title: 'Grid-栅格'
+        },
+        component: gridMd
       },
       {
         path: 'color',
