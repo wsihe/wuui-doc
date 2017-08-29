@@ -15,8 +15,7 @@
     "markdown-it": "^8.3.2",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
-    "vuex": "^2.3.1",
-    "wuui": "0.0.2"
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
