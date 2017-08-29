@@ -17,6 +17,8 @@ const gridMd = r => require.ensure([], () => r(require('@/docs/zh-CN/grid')), 'g
 
 const colorMd = r => require.ensure([], () => r(require('@/docs/zh-CN/color')), 'colorMd')
 const buttonMd = r => require.ensure([], () => r(require('@/docs/zh-CN/button')), 'buttonMd')
+const iconMd = r => require.ensure([], () => r(require('@/docs/zh-CN/icon')), 'iconMd')
+
 const switchMd = r => require.ensure([], () => r(require('@/docs/zh-CN/switch')), 'switchMd')
 const paginationMd = r => require.ensure([], () => r(require('@/docs/zh-CN/pagination')), 'paginationMd')
 const messageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/message')), 'messageMd')
@@ -82,6 +84,14 @@ const router = new Router({
           title: 'Grid-栅格'
         },
         component: gridMd
+      },
+      {
+        path: 'icon',
+        name: 'component-icon',
+        meta: {
+          title: 'Icon-图标'
+        },
+        component: iconMd
       },
       {
         path: 'color',
