@@ -31,9 +31,29 @@
 * 现代浏览器和 IE9 及以上
 * 支持服务端渲染
 
+### 已完成组件
+
+- Grid 栅格
+- icon 图标
+- Button 按钮
+- Input 输入框
+- Radio 单选框
+- Checkbox 多选框
+- Select 选择
+- AutoComplete 自动完成
+- Switch 开关
+- Pagination 分页
+- Message 消息
+- Dropdown 下拉菜单
+- Tabs 标签页
+- Collapse 折叠面板
+
+
 ### 当前版本
 
 Wuui 1.0.0
+
+
 
 
 ### 相关链接

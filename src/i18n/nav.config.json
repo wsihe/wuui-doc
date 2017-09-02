@@ -50,6 +50,10 @@
           "path": "input"
         },
         {
+          "name": "AutoComplete 自动完成",
+          "path": "autoComplete"
+        },
+        {
           "name": "Select 选择",
           "path": "select"
         },
