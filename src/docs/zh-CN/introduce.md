@@ -33,21 +33,21 @@
 
 ### 已完成组件
 
-- Grid 栅格
-- icon 图标
-- Button 按钮
-- Input 输入框
-- Radio 单选框
-- Checkbox 多选框
-- Select 选择
-- AutoComplete 自动完成
-- Switch 开关
-- Pagination 分页
-- Message 消息
-- Dropdown 下拉菜单
-- Tabs 标签页
-- Collapse 折叠面板
-
+ <ul class="component-list">
+   <li><router-link active-class="active" to='grid' exact> Grid 栅格 </router-link></li>
+   <li><router-link active-class="active" to='button' exact> Button 按钮 </router-link></li>
+   <li><router-link active-class="active" to='input' exact> Input 输入框 </router-link></li>
+   <li><router-link active-class="active" to='radio' exact> Radio 单选框 </router-link></li>
+   <li><router-link active-class="active" to='checkbox' exact> Checkbox 多选框 </router-link></li>
+   <li><router-link active-class="active" to='select' exact> Select 选择 </router-link></li>
+   <li><router-link active-class="active" to='autoComplete' exact> AutoComplete 自动完成 </router-link></li>
+   <li><router-link active-class="active" to='switch' exact> Switch 开关 </router-link></li>
+   <li><router-link active-class="active" to='pagination' exact> Pagination 分页 </router-link></li>
+   <li><router-link active-class="active" to='message' exact> Message 消息 </router-link></li>
+   <li><router-link active-class="active" to='dropdown' exact> Dropdown 下拉菜单 </router-link></li>
+   <li><router-link active-class="active" to='tabs' exact> Tabs 标签页 </router-link></li>
+   <li><router-link active-class="active" to='collapse' exact> Collapse 折叠面板 </router-link></li>
+ </ul>
 
 ### 当前版本
 
