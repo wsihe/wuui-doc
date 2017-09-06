@@ -3,26 +3,28 @@ import Router from 'vue-router'
 import index from '@/pages/index'
 import guide from '@/pages/guide'
 import component from '@/pages/component'
+import design from '@/docs/zh-CN/design'
+import contribution from '@/docs/zh-CN/contribution'
+import introduce from '@/docs/zh-CN/introduce'
+import installMd from '@/docs/zh-CN/install'
+import usageMd from '@/docs/zh-CN/usage'
+import gridMd from '@/docs/zh-CN/grid'
+import colorMd from '@/docs/zh-CN/color'
+import iconMd from '@/docs/zh-CN/icon'
+import buttonMd from '@/docs/zh-CN/button'
+import inputMd from '@/docs/zh-CN/input'
+import radioMd from '@/docs/zh-CN/radio'
+import checkboxMd from '@/docs/zh-CN/checkbox'
+import selectMd from '@/docs/zh-CN/select'
+import autoCompleteMd from '@/docs/zh-CN/auto-complete'
+import switchMd from '@/docs/zh-CN/switch'
+import paginationMd from '@/docs/zh-CN/pagination'
+import dropdownMd from '@/docs/zh-CN/dropdown'
+import tabsMd from '@/docs/zh-CN/tabs'
+import messageMd from '@/docs/zh-CN/message'
+import collapseMd from '@/docs/zh-CN/collapse'
 
 Vue.use(Router)
-
-// const breadcrumb = r => require.ensure([], () => r(require('@/docs/zh-CN/breadcrumb.md')), 'breadcrumb')
-const design = r => require.ensure([], () => r(require('@/docs/zh-CN/design')), 'design')
-const contribution = r => require.ensure([], () => r(require('@/docs/zh-CN/contribution')), 'contribution')
-
-const introduce = r => require.ensure([], () => r(require('@/docs/zh-CN/introduce')), 'introduce')
-const installMd = r => require.ensure([], () => r(require('@/docs/zh-CN/install')), 'installMd')
-const usageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/usage')), 'usageMd')
-const gridMd = r => require.ensure([], () => r(require('@/docs/zh-CN/grid')), 'gridMd')
-
-const colorMd = r => require.ensure([], () => r(require('@/docs/zh-CN/color')), 'colorMd')
-const buttonMd = r => require.ensure([], () => r(require('@/docs/zh-CN/button')), 'buttonMd')
-const iconMd = r => require.ensure([], () => r(require('@/docs/zh-CN/icon')), 'iconMd')
-
-const switchMd = r => require.ensure([], () => r(require('@/docs/zh-CN/switch')), 'switchMd')
-const paginationMd = r => require.ensure([], () => r(require('@/docs/zh-CN/pagination')), 'paginationMd')
-const messageMd = r => require.ensure([], () => r(require('@/docs/zh-CN/message')), 'messageMd')
-const collapseMd = r => require.ensure([], () => r(require('@/docs/zh-CN/collapse')), 'collapseMd')
 
 const router = new Router({
   routes:
@@ -108,6 +110,62 @@ const router = new Router({
           title: 'Button-按钮'
         },
         component: buttonMd
+      },
+      {
+        path: 'input',
+        name: 'component-input',
+        meta: {
+          title: 'Input 输入框'
+        },
+        component: inputMd
+      },
+      {
+        path: 'radio',
+        name: 'component-radio',
+        meta: {
+          title: 'Radio 单选框'
+        },
+        component: radioMd
+      },
+      {
+        path: 'checkbox',
+        name: 'component-checkbox',
+        meta: {
+          title: 'Checkbox 多选框'
+        },
+        component: checkboxMd
+      },
+      {
+        path: 'select',
+        name: 'component-select',
+        meta: {
+          title: 'Select 选择'
+        },
+        component: selectMd
+      },
+      {
+        path: 'autoComplete',
+        name: 'component-autoComplete',
+        meta: {
+          title: 'AutoComplete 自动完成'
+        },
+        component: autoCompleteMd
+      },
+      {
+        path: 'dropdown',
+        name: 'component-dropdown',
+        meta: {
+          title: 'Dropdown 下拉菜单'
+        },
+        component: dropdownMd
+      },
+      {
+        path: 'tabs',
+        name: 'component-tabs',
+        meta: {
+          title: 'Tabs 标签页'
+        },
+        component: tabsMd
       },
       {
         path: 'pagination',

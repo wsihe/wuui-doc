@@ -4,11 +4,11 @@
     .main__content.clearfix
       side-bar(v-on:data="inactive")
       .main__container
-        main-tab
+        //main-tab
         .page.markdown
           .content
-            tab-manager
-              router-view
+            router-view
+
     main-footer
 </template>
 
