@@ -16,7 +16,6 @@
   import $ from 'jquery'
   import mainNav from '@/components/base/head'
   import sideBar from '@/components/base/sidebar'
-  import mainTab from '@/components/base/tab'
   import mainFooter from '@/components/base/footer'
   export default {
     data () {
@@ -27,7 +26,6 @@
     components: {
       mainNav,
       sideBar,
-      mainTab,
       mainFooter
     },
     created () {
