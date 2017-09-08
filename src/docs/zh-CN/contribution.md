@@ -35,7 +35,15 @@ build:
 
 - 请先 fork 一份到自己的项目下，不要直接在仓库下建分支。
 
-- commit 信息要以[组件名]: 描述信息 的形式填写，例如 appbar: fix xxx bug。
+- 格式化的 Commit message。
+
+	- feat：新功能（feature）
+	- fix：修补bug
+	- docs：文档（documentation）
+	- style： 格式（不影响代码运行的变动）
+	- refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+	- test：增加测试
+	- chore：构建过程或辅助工具的变动
 
 - 不要提交 dist 或 docs 文件夹下的文件
 
