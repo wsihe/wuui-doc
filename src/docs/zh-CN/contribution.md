@@ -19,8 +19,6 @@ build:
 
 - 使用 ES2015 语法
 
-- CSS 命名采用 BEM 的风格
-
 - 在examples/test内测试组件
 
 ### Issue 规范
@@ -29,7 +27,7 @@ build:
 
 - 在提交 issue 之前，请搜索相关内容是否已被提出。
 
-- 请说明 Muse UI 和 Vue 的版本号，并提供操作系统和浏览器信息。推荐使用 JSFiddle 生成在线 demo，这能够更直观地重现问题。
+- 请说明 Wuui 和 Vue 的版本号，并提供操作系统和浏览器信息。推荐使用 [JSFiddle](https://jsfiddle.net/) 生成在线 demo，这能够更直观地重现问题。
 
 ### Pull Request 规范
 
