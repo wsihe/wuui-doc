@@ -4,11 +4,12 @@
       .footer-main__title Wuui 1.0.0
       ul.footer-main__nav
         li.footer-main__item
-          a 反馈建议
+          a(href="https://github.com/wsihe/wuui/issues" target="_blank") 反馈建议
         li.footer-main__item
-          a 贡献指南
+          router-link(active-class="active" to='/guide/contribution' exact) 贡献指南
     .footer-social
-      .i.iconfont.icon-github
+      a(href="https://github.com/wsihe/wuui" target="_blank")
+        icon(type="github")
 </template>
 
 <script>
@@ -36,14 +37,15 @@
         font-size 24px
       .footer-main__nav
         float left
+        margin-left 20px
         .footer-main__item
           opacity 0.6
-          padding 4px 20px  0
+          padding 4px 20px 0 0
           float left
           font-size 14px
     .footer-social
       float right
-      .iconfont
+      .wu-icon
         color #666
         font-size 32px
 </style>
