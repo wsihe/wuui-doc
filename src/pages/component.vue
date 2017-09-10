@@ -80,7 +80,7 @@
       margin-left 200px
       padding 0 0 120px
       margin-left -1px
-      min-height 500px
+      min-height 1170px
       overflow hidden
       border-left 1px solid #e9e9e9
     .router-fade-enter-active, .router-fade-leave-active
