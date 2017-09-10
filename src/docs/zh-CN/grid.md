@@ -1,35 +1,47 @@
 ## Grid 栅格
 
-24 栅格系统。
+24 栅格系统，快速创建布局。
+
+ #### 基础布局
+
+ ::: demo 使用单一的一组 `wu-row` 和 `wu-col` 栅格组件，就可以创建一个基本的栅格系统，所有列（wu-col）必须放在 `wu-row` 内。
+
+ ```html
+<wu-row class="row-bg">
+  <wu-col :span="6"><div class="grid-content bg-purple">col-6</div></wu-col>
+  <wu-col :span="6"><div class="grid-content bg-purple-light">col-6</div></wu-col>
+  <wu-col :span="6"><div class="grid-content bg-purple">col-6</div></wu-col>
+  <wu-col :span="6"><div class="grid-content bg-purple-light">col-6</div></wu-col>
+</wu-row>
+ ```
+ :::
 
 
-使用单一的一组 `wu-row` 和 `wu-col` 栅格组件，就可以创建一个基本的栅格系统，所有列（wu-col）必须放在 `wu-row` 内。
+ #### 基础布局
 
+ ::: demo 通过 row 和 col 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。
+
+ ```html
 <wu-row type="flex" class="row-bg">
   <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
   <wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
   <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
 </wu-row>
-<wu-row type="flex" class="row-bg" justify="center">
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-</wu-row>
-<wu-row type="flex" class="row-bg" justify="end">
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-</wu-row>
-<wu-row type="flex" class="row-bg" justify="space-between">
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-</wu-row>
-<wu-row type="flex" class="row-bg" justify="space-around">
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-</wu-row>
+ ```
+ :::
+
+ #### 基础布局
+
+ ::: demo 通过 row 和 col 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。
+
+ ```html
+	<wu-row type="flex" class="row-bg">
+		<wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
+		<wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
+		<wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
+	</wu-row>
+ ```
+ :::
 
 <style>
   .wu-row {
@@ -37,9 +49,6 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
-  .wu-col {
-    border-radius: 4px;
   }
   .bg-purple-dark {
     background: rgba(0,160,233,.7);
@@ -51,16 +60,16 @@
     background: rgba(0,160,233,.7);
   }
   .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align:center;
+    color:#fff;
   }
   .row-bg {
     padding: 10px 0;
     background-color: #f9fafc;
   }
 </style>
-
-
 
 ### wu-row
 
