@@ -10,9 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "highlight.js": "^9.12.0",
-    "jquery": "",
-    "markdown-it": "^8.3.2",
+    "clipboard": "^1.7.1",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
     "vuex": "^2.3.1"
@@ -67,7 +65,10 @@
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
-    "webpack-merge": "^2.6.1"
+    "webpack-merge": "^2.6.1",
+    "markdown-it": "^6.1.1",
+    "markdown-it-anchor": "^2.5.0",
+    "markdown-it-container": "^2.0.0"
   },
   "engines": {
     "node": ">= 4.0.0",
