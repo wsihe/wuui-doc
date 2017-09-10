@@ -13,7 +13,7 @@
             img(alt="expand code" src="../assets/images/expand1.svg", :class="imgCls")
             img(alt="expand code" src="../assets/images/expand2.svg", :class="imgCls2")
         section.highlight-wrapper(v-if="isActive")
-          Code
+          Code(:jsfiddle="jsfiddle")
             slot(name="highlight")
 </template>
 
@@ -151,8 +151,6 @@
       pointer-events auto
       &:hover
         opacity 1
-    .code-expand-icon.ant-tooltip-open .code-expand-icon-show
-      opacity 1
     .code-expand-icon-hide
       opacity 0
       pointer-events none
@@ -162,61 +160,6 @@
       border-radius 0 0 $border-radius-base $border-radius-base
       &-expand
         display block
-    .highlight
-      position relative
-      pre
-        margin 0
-        padding 0
-        background #fff
-      &:not(:first-child)
-        border-top 1px dashed $border-color-split
-    &-actions
-      position absolute
-      top 10px
-      right 12px
-      text-align right
-      > i,
-      > form
-        display inline-block
-        margin-left 8px
-    &-code-copy
-      font-size 14px
-      cursor pointer
-      color #222
-      transition all .24s
-      background #fff
-      width 20px
-      height 20px
-      line-height 20px
-      text-align center
-      border-radius 20px
-      opacity 0
-      &:hover
-        color $primary-color
-        transform scale(1.2)
-      &.anticon-check
-        color $green-6 !important
-        font-weight bold
-    &-codepen
-      //background transparent url("https//gw.alipayobjects.com/zos/rmsportal/bsyXYJlnerAkEMGKtTpa.svg") center / 14px no-repeat
-      width 20px
-      height 20px
-      cursor pointer
-      opacity 0
-      transition all .3s
-      border 0
-      text-indent -9999px
-      overflow hidden
-    &-riddle
-      //background transparent url("https://zos.alipayobjects.com/rmsportal/WpXYyalbBFqfZEV.svg") center / 14px no-repeat
-      width 20px
-      height 20px
-      cursor pointer
-      opacity 0
-      transition all .3s
-      border 0
-      text-indent -9999px
-      overflow hidden
     .highlight-wrapper:hover &-code-copy,
     .highlight-wrapper:hover &-codepen,
     .highlight-wrapper:hover &-riddle

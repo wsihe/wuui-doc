@@ -1,38 +1,54 @@
-<template>
-  <div :class="language" ref="code"><slot></slot></div>
+<template lang="pug">
+  .highlight(@mouseenter="toggleIcon(0)", @mouseleave="toggleIcon(1)")
+    .code-box-actions(v-show="showIcon")
+      span(class="code-box-copy", @click="clip")
+        icon(:type="copyType")
+    slot
 </template>
 
 <script>
 //  import hljs from 'highlight.js'
+  import Clipboard from 'clipboard'
   export default {
     props: {
-      lang: {
-        type: String,
-        default: 'javascript'
-      }
+      jsfiddle: Object
     },
     data () {
       return {
-        code: ''
+        showIcon: false,
+        copied: false
       }
     },
     computed: {
-      language () {
-        if (this.lang === 'auto') {
-          return ''
-        } else {
-          return this.lang
-        }
+      copyType () {
+        return this.copied ? 'check' : 'copy'
       }
     },
     methods: {
-      toggleClick () {
-        this.isActive = !this.isActive
+      toggleIcon (val) {
+        if (val === 0) {
+          this.showIcon = true
+        } else {
+          this.showIcon = false
+        }
+      },
+      clip () {
+        const { html } = this.jsfiddle
+        const clipboard = new Clipboard('.code-box-copy', {
+          text () {
+            return html
+          }
+        })
+        clipboard.on('success', (e) => {
+          e.clearSelection()
+          clipboard.destroy()
+          this.copied = true
+//          this.$message('Code copied')
+          setTimeout(() => {
+            this.copied = false
+          }, 2000)
+        })
       }
-    },
-    mounted () {
-//      this.code = this.$refs.code.innerHTML.replace(/\n/, '')
-//      this.$refs.code.innerHTML = this.code
     }
   }
 </script>
@@ -53,10 +69,26 @@
     top 10px
     right 12px
     text-align right
-    > i,
-    > form
-      display inline-block
-      margin-left 8px
+    i
+      cursor pointer
+  .code-box-copy
+    font-size 14px
+    cursor pointer
+    color #222
+    transition all .24s
+    background #fff
+    width 20px
+    height 20px
+    line-height 20px
+    text-align center
+    border-radius 20px
+    opacity .7
+    &:hover
+      color $primary-color
+      transform scale(1.2)
+    .wu-icon-check
+      color $green-6 !important
+      font-weight bold
   pre
     margin 0
     width auto
