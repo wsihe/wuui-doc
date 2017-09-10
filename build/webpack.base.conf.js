@@ -50,7 +50,7 @@ markdown.use = [
           return `<Demo class="demo-box" :jsfiddle="${jsfiddle}">
                     <div class="source" slot="source">${html}</div>
                     ${descriptionHTML}
-                    <div class="highlight" slot="highlight">`;
+                    <div slot="highlight">`;
         }
         return '</div></Demo>\n';
       }
