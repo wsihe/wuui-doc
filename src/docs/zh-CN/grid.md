@@ -7,7 +7,7 @@
  ::: demo 使用单一的一组 `wu-row` 和 `wu-col` 栅格组件，就可以创建一个基本的栅格系统，所有列（wu-col）必须放在 `wu-row` 内。
 
  ```html
-<wu-row class="row-bg">
+<wu-row>
   <wu-col :span="6"><div class="grid-content bg-purple">col-6</div></wu-col>
   <wu-col :span="6"><div class="grid-content bg-purple-light">col-6</div></wu-col>
   <wu-col :span="6"><div class="grid-content bg-purple">col-6</div></wu-col>
@@ -17,31 +17,84 @@
  :::
 
 
- #### 基础布局
+ #### 区块间隔
 
- ::: demo 通过 row 和 col 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。
+ ::: demo 栅格常常需要和间隔进行配合，你可以使用 `Row` 的 `gutter` 属性，我们推荐使用 ``(16+8n)px` 作为栅格间隔。(n 是自然数)
 
  ```html
-<wu-row type="flex" class="row-bg">
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
-  <wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
+<wu-row :gutter="20">
+  <wu-col :span="6"><div class="grid-content bg-purple">col-6</div></wu-col>
+  <wu-col :span="6"><div class="grid-content bg-purple-light">col-6</div></wu-col>
+  <wu-col :span="6"><div class="grid-content bg-purple">col-6</div></wu-col>
+  <wu-col :span="6"><div class="grid-content bg-purple-light">col-6</div></wu-col>
 </wu-row>
  ```
  :::
 
- #### 基础布局
+ #### 左右偏移
 
- ::: demo 通过 row 和 col 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。
+ ::: demo 使用 `offset` 可以将列向右侧偏。例如，`:offset="8"` 将元素向右侧偏移了 8 个列（column）的宽度。
 
  ```html
-	<wu-row type="flex" class="row-bg">
-		<wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-		<wu-col :span="6"><div class="grid-content bg-purple-light"></div></wu-col>
-		<wu-col :span="6"><div class="grid-content bg-purple"></div></wu-col>
-	</wu-row>
+<wu-row>
+  <wu-col :span="8"><div class="grid-content bg-purple">col-8</div></wu-col>
+  <wu-col :span="8" :offset="8"><div class="grid-content bg-purple-light">col-8</div></wu-col>
+</wu-row>
+<wu-row>
+  <wu-col :span="6" :offset="6" ><div class="grid-content bg-purple">col-6 col-offset-6</div></wu-col>
+  <wu-col :span="6" :offset="6"><div class="grid-content bg-purple-light">col-6 col-offset-6</div></wu-col>
+</wu-row>
+<wu-row>
+  <wu-col :span="12" :offset="6" ><div class="grid-content bg-purple">col-12 col-offset-6</div></wu-col>
+</wu-row>
  ```
  :::
+
+#### 栅格排序
+
+::: demo 通过使用 `push` 和 `pull` 类就可以很容易的改变列（column）的顺序。
+
+```html
+ <wu-row>
+   <wu-col :span="18" :push="6"><div class="grid-content bg-purple">col-18 col-push-6</div></wu-col>
+   <wu-col :span="6" :pull="18"><div class="grid-content bg-purple-light">col-6 col-pull-18</div></wu-col>
+ </wu-row>
+```
+:::
+
+#### Flex 布局
+
+::: demo 使用 `row-flex` 定义 `flex` 布局，其子元素根据不同的值 `start`,`center`,`end`,`space-between`,`space-around`，分别定义其在父节点里面的排版方式。
+
+```html
+ <wu-row type="flex" justify="start">
+   <wu-col :span="4"><div class="grid-content bg-purple">col-4</div></wu-col>
+   <wu-col :span="4"><div class="grid-content bg-purple-light">col-4</div></wu-col>
+   <wu-col :span="4"><div class="grid-content bg-purple">col-4</div></wu-col>
+   <wu-col :span="4"><div class="grid-content bg-purple-light">col-4</div></wu-col>
+ </wu-row>
+ <wu-row type="flex" class="row-bg" justify="space-around">
+   <wu-col :span="4"><div class="grid-content bg-purple">col-4</div></wu-col>
+   <wu-col :span="4"><div class="grid-content bg-purple-light">col-4</div></wu-col>
+   <wu-col :span="4"><div class="grid-content bg-purple">col-4</div></wu-col>
+   <wu-col :span="4"><div class="grid-content bg-purple-light">col-4</div></wu-col>
+ </wu-row>
+
+```
+:::
+
+#### 响应式布局
+
+::: demo 参照 Bootstrap 的 [响应式设计](http://getbootstrap.com/css/#grid-media-queries)，预设五个响应尺寸：`xs` `sm` `md` `lg` `xl`。
+
+```html
+ <wu-row>
+   <wu-col :xs="2" :sm="4" :md="6" :lg="8" :xl="10"><div class="grid-content bg-purple">col</div></wu-col>
+   <wu-col :xs="20" :sm="16" :md="12" :lg="8" :xl="4"><div class="grid-content bg-purple-light">col</div></wu-col>
+   <wu-col :xs="2" :sm="4" :md="6" :lg="8" :xl="10"><div class="grid-content bg-purple">col</div></wu-col>
+ </wu-row>
+```
+:::
 
 <style>
   .wu-row {
