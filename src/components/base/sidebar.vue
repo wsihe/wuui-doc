@@ -14,7 +14,7 @@
         .sidebar__item(v-if="isComponentNav" )
           .sidebar__parent(@click.stop="onHomeMenuClick()")
             i.icon
-            span Wuui1.0.0
+            span Wuui 1.0.0
             .sidebar__item_nav(@click.stop="showMenu()")
               i.iconfont.icon-shousuo
         .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
@@ -120,8 +120,8 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../../css/define';
-  @import '../../assets/fonts/iconfont.css';
+  @import '../../css/define'
+  @import '../../assets/fonts/iconfont.css'
   .sidebar
     font-family Lato,Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
     .sidebar-flex
@@ -224,12 +224,12 @@
               &::before
                 position absolute
                 content ""
-                width 6px
-                height 6px
+                width 5px
+                height 5px
                 border 1px solid #2f92d1
                 border-radius 100%
                 left 34px
-                bottom 17px
+                bottom 22px
                 background #2f92d1
   .slide-fade-enter-active
     transition all .3s ease
