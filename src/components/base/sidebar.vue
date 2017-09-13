@@ -14,7 +14,7 @@
         .sidebar__item(v-if="isComponentNav" )
           .sidebar__parent(@click.stop="onHomeMenuClick()")
             i.icon
-            span Wuui 1.0.0
+            span Wuui 0.0.7
             .sidebar__item_nav(@click.stop="showMenu()")
               i.iconfont.icon-shousuo
         .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
