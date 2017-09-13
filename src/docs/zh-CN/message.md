@@ -41,6 +41,15 @@
 
 ```html
  <wu-button @click="info">info</wu-button>
+ <script>
+   export default {
+     methods: {
+       info () {
+         this.$message('这是一条消息提示')
+       }
+     }
+   }
+ </script>
 ```
 :::
 
@@ -52,6 +61,30 @@
  <wu-button @click="success">success</wu-button>
  <wu-button @click="warning">warning</wu-button>
  <wu-button @click="error">error</wu-button>
+ <script>
+   export default {
+     methods: {
+       success () {
+         this.$message({
+           message: '这是一条成功消息',
+           type: 'success'
+         })
+       },
+       warning () {
+         this.$message({
+           message: '这是一条警告消息',
+           type: 'warning'
+         })
+       },
+       error () {
+         this.$message({
+           message: '这是一条错误消息',
+           type: 'error'
+         })
+       }
+     }
+   }
+ </script>
 ```
 :::
 
