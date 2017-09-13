@@ -41,7 +41,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .main
     background #ececec
   .main__content

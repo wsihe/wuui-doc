@@ -40,8 +40,7 @@
   }
 </script>
 
-<style lang="stylus">
-  @import "../css/index.styl"
+<style lang="stylus" scoped>
   .main
     background #ececec
   .main__content

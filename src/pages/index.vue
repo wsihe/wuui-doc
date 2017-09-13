@@ -29,7 +29,7 @@
 </script>
 
 <style lang="stylus">
-  @import '../css/define';
+  @import "../css/index.styl"
   .home-page
     height 100%
     background url("../assets/images/bg.jpg") no-repeat
