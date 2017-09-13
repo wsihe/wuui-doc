@@ -1,5 +1,6 @@
 <script>
-	import iconList from '@/icon.json'
+	import Clipboard from 'clipboard'
+	import iconList from '@/config/icon.json'
   export default {
     data () {
       return {
@@ -7,6 +8,24 @@
 				suggestion: iconList.suggestion,
 				logo: iconList.logo,
 				other: iconList.other,
+      }
+    },
+    methods: {
+      clip (val) {
+        const html = `<icon type="${val}"></icon>`
+        const clipboard = new Clipboard('.icon-box-copy', {
+          text () {
+            return html
+          }
+        })
+        clipboard.on('success', (e) => {
+          e.clearSelection()
+          clipboard.destroy()
+          this.$message({
+            message: 'Code copied',
+            type: 'success'
+          })
+        })
       }
     }
   }
@@ -26,13 +45,22 @@
 ::: demo 使用 `<icon type=''/>` 标签声明组件，指定图标对应的 type 属性
 
 ```html
-<icon type="link" />
+<icon type="link" class="icon-cls"></icon>
+<icon type="calendar" class="icon-cls"></icon>
+<icon type="right-circle-o" class="icon-cls"></icon>
+<icon type="left-circle" class="icon-cls"></icon>
+<style>
+.icon-cls {
+  font-size: 24px;
+  color: #2d8cf0;
+}
+</style>
 ```
 :::
 
 ### 方向性图标
 <ul class='wu-icons-list'>
-	<li v-for='icon in direction'>
+	<li class='icon-box-copy' v-for='icon in direction' @click='clip(icon)'>
 		<div><icon :type='icon'></div>
 		<span class="wu-icon-class"> {{icon}} </span>
 	</li>
@@ -40,7 +68,7 @@
 
 ### 提示建议性图标
 <ul class='wu-icons-list'>
-	<li v-for='icon in suggestion'>
+	<li class='icon-box-copy' v-for='icon in suggestion' @click='clip(icon)'>
 		<div><icon :type='icon'></div>
 		<span class="wu-icon-class"> {{icon}} </span>
 	</li>
@@ -49,7 +77,7 @@
 
 ### 网站通用图标
 <ul class='wu-icons-list'>
-	<li v-for='icon in other'>
+	<li class='icon-box-copy' v-for='icon in other' @click='clip(icon)'>
 		<div><icon :type='icon'></div>
 		<span class="wu-icon-class"> {{icon}} </span>
 	</li>
@@ -57,22 +85,17 @@
 
 ### 品牌和标识
 <ul class='wu-icons-list'>
-	<li v-for='icon in logo'>
+	<li class='icon-box-copy'  v-for='icon in logo' @click='clip(icon)'>
 		<div><icon :type='icon'></div>
 		<span class="wu-icon-class"> {{icon}} </span>
 	</li>
 </ul>
 
-
 <style>
-.pic-plus > * {
-  display: inline-block !important;
-  vertical-align: middle;
-}
-.pic-plus span {
-  font-size: 30px;
-  color: #aaa;
-  margin: 0 20px;
+.icon-cls {
+  font-size: 24px;
+  margin-right:20px;
+  color: #2d8cf0;
 }
 </style>
 
