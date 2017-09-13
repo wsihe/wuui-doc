@@ -7,7 +7,7 @@
 
 ## API
 
-### Tabs
+### wu-tabs
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
@@ -26,7 +26,7 @@
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean   | false    |
 | animated | 是否使用动画切换 Tabs，在 `tabPosition=top|bottom` 时有效 | boolean \| {inkBar:boolean, tabPane:boolean} | true, 当 type="card" 时为 false |
 
-### Tabs.TabPane
+### wu-tab-pane
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|

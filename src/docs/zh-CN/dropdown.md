@@ -6,7 +6,7 @@
 
 ## API
 
-属性如下
+### wu-dropdown
 
 | 参数        | 说明             | 类型               | 默认值       |
 |-------------|------------------|--------------------|--------------|
@@ -17,7 +17,19 @@
 | onVisibleChange  | 菜单显示状态改变时调用，参数为 visible | Function(visible) | - |
 | placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
 
-### Dropdown.Button
+### wu-dropdown-item
+
+| 参数        | 说明             | 类型               | 默认值       |
+|-------------|------------------|--------------------|--------------|
+| type        | 按钮类型，和 [Button](/components/button/) 一致 | string | 'default' |
+| size        | 按钮大小，和 [Button](/components/button/) 一致 | string | 'default' |
+| onClick     | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | Function   | - |
+| trigger     | 触发下拉的行为   | Array<'click'\|'hover'> | ['hover']        |
+| overlay     | 菜单         | [Menu](/components/menu/) | -     |
+| visible     | 菜单是否显示 | boolean   | -           |
+| onVisibleChange  | 菜单显示状态改变时调用，参数为 visible | Function | - |
+
+### wu-dropdown-menu
 
 | 参数        | 说明             | 类型               | 默认值       |
 |-------------|------------------|--------------------|--------------|
