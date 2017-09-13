@@ -27,6 +27,7 @@ import collapseMd from '@/docs/zh-CN/collapse'
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes:
   [{
     path: '/index',
@@ -203,7 +204,14 @@ const router = new Router({
   {
     path: '',
     redirect: '/index'
-  }]
+  }],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 export default router
