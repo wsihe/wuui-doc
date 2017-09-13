@@ -32,7 +32,7 @@
   @import '../css/define';
   .home-page
     height 100%
-    background url("../assets/images/bg.png") no-repeat
+    background url("../assets/images/bg.jpg") no-repeat
     background-size 100%
     .header-navbar
       position fixed
