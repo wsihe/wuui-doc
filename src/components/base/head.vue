@@ -5,7 +5,12 @@
         a.logo(href='javascript:void(0)')
       .header-navbar__collapse
         .header-navbar__search
-           .select-box 搜索组件...
+          wu-select(
+            v-model="selectType"
+            placeholder="搜索组件..."
+            showSearch
+            @on-change="handleChange")
+            wu-option(:value="item.path", :label="item.name", :key="index", v-for="(item, index) in components")
       .header-lang 中文
       ul.header-nav
         li.header-nav__item(v-for="nav in navList")
@@ -14,10 +19,13 @@
 
 <script>
   import navConfig from '@/i18n/main.nav.json'
+  import list from '@/i18n/nav.config.json'
   export default {
     data () {
       return {
-        navList: []
+        navList: [],
+        components: [],
+        selectType: ''
       }
     },
     created () {
@@ -26,7 +34,24 @@
     methods: {
       handleTitleData (data) {
         this.navList = data['zh-CN']
+      },
+      handleChange (val) {
+        this.$router.push({ path: `${val}` })
+      },
+      handleMenuData (menus) {
+        let comList = []
+        menus.menuItem.forEach((item1) => {
+          if (item1.icon !== 'icon-start') {
+            item1.menuItem.forEach((item2) => {
+              comList.push(item2)
+            })
+          }
+        })
+        return comList
       }
+    },
+    mounted () {
+      this.components = this.handleMenuData(list)
     }
   }
 </script>
@@ -59,13 +84,16 @@
       width 220px
       padding-left 10px
       border-left 1px solid #e9e9e9
-      input
-        border none
+      .wu-select
+        width 160px
+      .wu-select-selection
         background none
-    .select-box
-      font-size 14px
-      color #666
-      opacity .8
+        border none
+      .wu-select-open .wu-select-selection
+        border-color none
+        box-shadow none
+      .wu-icon
+        display none
     .header-nav
       border 0
       float right
