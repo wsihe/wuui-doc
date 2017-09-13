@@ -13,8 +13,7 @@
     "clipboard": "^1.7.1",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
-    "vuex": "^2.3.1",
-    "wuui": "0.0.5"
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
