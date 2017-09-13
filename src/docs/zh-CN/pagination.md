@@ -5,6 +5,30 @@
 - 当加载/渲染所有数据将花费很多时间时；
 - 可切换页码浏览数据。
 
+:::
+
+### 基本
+
+::: demo 基本分页。
+
+```html
+<div class="pager">
+ <wu-pagination :total="20"></wu-pagination>
+ <wu-pagination :total="100"></wu-pagination>
+</div>
+```
+:::
+
+<style>
+	.pager .wu-pagination {
+		margin-bottom: 20px;
+	}
+	.pager ul li {
+    margin-left: 0px;
+    padding-left: 0px;
+	}
+</style>
+
 ## API
 
 ### wu-pagination
