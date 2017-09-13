@@ -42,7 +42,6 @@
 </script>
 
 <style lang="stylus">
-  @import "../css/index.styl"
   .main
     background #ececec
   .main__content

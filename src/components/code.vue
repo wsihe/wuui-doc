@@ -43,7 +43,10 @@
           e.clearSelection()
           clipboard.destroy()
           this.copied = true
-//          this.$message('Code copied')
+          this.$message({
+            message: 'Code copied',
+            type: 'success'
+          })
           setTimeout(() => {
             this.copied = false
           }, 2000)

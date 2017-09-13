@@ -1,0 +1,54 @@
+.color-content
+  margin 45px 0
+
+  .page-color
+    display: flex
+    &-item
+      cursor: pointer
+      flex: 1
+      height: 80px
+      border-radius: 4px
+      float: left
+      margin-right: 4px
+      transition: all .2s
+      position: relative
+      text-align: center
+      padding-top: 28px
+      font-family: Consolas
+      font-size: 12px
+      &:last-child
+        margin-right: 0
+      &:hover
+        margin-top: -10px
+        height: 90px
+    &-value
+      font-size: 12px
+      position: absolute
+      bottom: -4px
+      transform: scale(0.85)
+      left: 0
+      width: 100%
+      text-align: center
+      opacity: 0
+      transition: all .2s ease .1s
+
+  .color-title
+    margin: 0 0 24px
+    font-weight: 500
+    color: #5c6b77
+    font-size: 26px
+    text-transform: capitalize
+    text-align: center
+
+  .color-description
+    font-size: 12px
+    font-weight: lighter
+    color: #777
+    display: block
+
+  .page-color:hover
+    .page-color-item
+      padding-top: 4px
+    .page-color-value
+      opacity: 0.7
+      bottom: 3px
