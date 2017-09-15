@@ -1,3 +1,34 @@
+<script>
+  export default {
+    data () {
+      return {
+        value1: '',
+        dataSource: [],
+        dataSource2: []
+      }
+    },
+    watch: {
+    },
+    methods: {
+      handleSearch (value) {
+        this.dataSource = !value ? [] : [
+          value,
+          value + value,
+          value + value + value
+        ]
+      },
+      handleSearch2 (value) {
+        let result
+        if (!value || value.indexOf('@') >= 0) {
+          result = []
+        } else {
+          result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`)
+        }
+        this.dataSource2 = result
+      }
+    }
+  }
+</script>
 ## AutoComplete 自动完成
 
 ### 何时使用
@@ -9,7 +40,23 @@
 ::: demo 通过 dataSource 设置自动完成的数据源。
 
 ```html
-<wu-auto-complete value="111" placeholder="搜索"></wu-auto-complete>
+<wu-auto-complete
+	:data-source="dataSource"
+	placeholder="input here"
+	@on-search="handleSearch">
+</wu-auto-complete>
+
+```
+:::
+
+#### 自定义选项
+
+::: demo 也可以直接传 `wu-option` 作为 wu-auto-complete 的 option，而非使用 dataSource。
+
+```html
+<wu-auto-complete  placeholder="input here" @on-search="handleSearch2">
+	<wu-option :value="item" :key="index" v-for="(item, index) in dataSource2"></wu-option>
+</wu-auto-complete>
 
 ```
 :::
