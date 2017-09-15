@@ -4,7 +4,55 @@
       return {
         value1: '',
         value2: 'a',
-        value3: 'b'
+        value3: 'b',
+        value4: '',
+        loading: false,
+				cityList: [
+          {
+            value: 'beijing',
+            label: '北京市'
+          },
+          {
+            value: 'shanghai',
+            label: '上海市'
+          },
+          {
+            value: 'shenzhen',
+            label: '深圳市'
+          },
+          {
+            value: 'hangzhou',
+            label: '杭州市'
+          },
+          {
+            value: 'nanjing',
+            label: '南京市'
+          },
+          {
+            value: 'chongqing',
+            label: '重庆市'
+          }
+        ],
+        options: []
+      }
+    },
+ 		methods: {
+      remoteMethod (val) {
+        if (val !== '') {
+          this.loading = true
+          setTimeout(() => {
+            this.loading = false
+            const list = this.cityList.map(item => {
+              return {
+                value: item.value,
+                label: item.value
+              }
+            })
+            this.options = list.filter(item => item.label.toLowerCase().indexOf(val.toLowerCase()) > -1)
+          }, 1000)
+        } else {
+          this.options = []
+        }
       }
     }
   }
@@ -41,19 +89,30 @@
  ```
  :::
 
- ### 带搜索框
+### 带搜索框
 
- ::: demo 展开后可对选项进行搜索。
+::: demo 展开后可对选项进行搜索。
 
-  ```html
- <wu-select v-model="value3" placeholder="搜索" show-search="true">
-   <wu-option value="a" label="广州"></wu-option>
-   <wu-option value="b" label="北京"></wu-option>
-   <wu-option value="c" label="上海"></wu-option>
- </wu-select>
+```html
+<wu-select v-model="value3" placeholder="搜索" show-search="true">
+  <wu-option value="a" label="广州"></wu-option>
+  <wu-option value="b" label="北京"></wu-option>
+  <wu-option value="c" label="上海"></wu-option>
+</wu-select>
 
-  ```
-  :::
+```
+:::
+
+### 远程搜索
+
+::: demo 支持远程搜索。
+
+```html
+<wu-select v-model="value4" placeholder="远程搜索" show-search="true" remote :remote-method="remoteMethod" :loading="loading">
+  <wu-option :value="item.value" :label="item.value" :key="index" v-for="(item, index) in options"></wu-option>
+</wu-select>
+```
+:::
 
  <style>
    .wu-select {
