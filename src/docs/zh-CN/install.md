@@ -1,16 +1,13 @@
 ## 安装
 
-### 使用 npm 或 yarn 安装
+### 使用 `npm` 安装
 
-**推荐使用 npm 或 yarn 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用
+**推荐使用 `npm` 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用
 
 ```bash
 $ npm install wuui --save
 ```
 
-```bash
-$ yarn add wuui
-```
 如果网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 
 ### 浏览器引入

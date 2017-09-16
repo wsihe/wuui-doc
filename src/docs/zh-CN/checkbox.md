@@ -34,7 +34,7 @@
 ::: demo 最简单的用法。
 
 ```html
- <wu-checkbox v-model='value1' @on-change="handle"> radcheckboxio </wu-checkbox>
+ <wu-checkbox v-model='value1' @on-change="handle"> checkbox </wu-checkbox>
  <span> {{value1}} </span>
  <wu-checkbox @on-change="handle" disabled> checkbox </wu-checkbox>
 ```
@@ -46,9 +46,9 @@
 
 ```html
 <wu-checkbox-group size="large">
- <wu-checkbox label="a"> radio1 </wu-checkbox>
- <wu-checkbox label="b"> radio2 </wu-checkbox>
- <wu-checkbox label="c"> radio3 </wu-checkbox>
+ <wu-checkbox label="a"> checkbox 1 </wu-checkbox>
+ <wu-checkbox label="b"> checkbox 2 </wu-checkbox>
+ <wu-checkbox label="c"> checkbox 3 </wu-checkbox>
 </wu-radio-group>
 
 ```

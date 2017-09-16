@@ -33,12 +33,9 @@
 </script>
 ## Color 色彩
 
-在选择色彩时有以下三个注意点：
-- 色彩应与产品定位相匹配，且符合用户心理认知；
-- 视觉层次应清晰分明，为重要行动点或关键信息定义一个主色，并建立视觉连续性；
-- 遵守 WCAG 2.0 的 标准，保证足够的对比度，让色彩更容易被视障碍（色盲）用户识别。
+简洁实用的色彩。
 
-每种基本色（第 6 格）又按上述算法衍生出 10 种渐变色
+Wuui 色彩由 Ant Design 的色板 5 种基本色彩组成，每种基本色（第 6 格）又衍生出 10 种渐变色。其中友好的蓝色作为主色和不同的场景的辅助色
 
 <div class="color-content">
 	<div class="color-title">
@@ -100,3 +97,6 @@
 		</div>
 	</div>
 </div>
+
+相关链接：
+- [色板生成算法](https://github.com/ant-design/ant-design/blob/734beb84ffc3f0469fbae1566aa8450f966cb261/components/style/color/colorPalette.less)
