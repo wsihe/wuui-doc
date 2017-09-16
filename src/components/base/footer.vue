@@ -1,7 +1,7 @@
 <template lang="pug">
   .footer-container.clearfix
     .footer-main
-      .footer-main__title Wuui 0.0.7
+      .footer-main__title Wuui 0.0.10
       ul.footer-main__nav
         li.footer-main__item
           a(href="https://github.com/wsihe/wuui/issues" target="_blank") 反馈建议
