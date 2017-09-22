@@ -68,7 +68,8 @@
     "webpack-merge": "^2.6.1",
     "markdown-it": "^6.1.1",
     "markdown-it-anchor": "^2.5.0",
-    "markdown-it-container": "^2.0.0"
+    "markdown-it-container": "^2.0.0",
+    "transliteration": "^1.1.11"
   },
   "engines": {
     "node": ">= 4.0.0",
