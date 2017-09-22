@@ -11,7 +11,17 @@
 
 ```html
 <div class="pager">
- <wu-pagination :total="20"></wu-pagination>
+ <wu-pagination :total="50"></wu-pagination>
+</div>
+```
+:::
+
+### 更多
+
+::: demo 更多分页。
+
+```html
+<div class="pager">
  <wu-pagination :total="100"></wu-pagination>
 </div>
 ```
