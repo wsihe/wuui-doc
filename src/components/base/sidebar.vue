@@ -1,37 +1,26 @@
 <template lang="pug">
   .sidebar
-    transition(name="slide-fade" mode="out-in")
-      .sidebar-flex(v-if="show" key="flex")
-        .sidebar__item(@click.stop="showMenu()")
-          i.iconfont.icon-zhankai
-        .sidebar__item(v-for="(menu, index) in menuList", @mouseenter = "focus(menu)", @mouseleave = "focus(menu)" v-cloak)
+    .sidebar-expand
+      .sidebar__item(v-if="isComponentNav" )
+        .sidebar__parent(@click.stop="onHomeMenuClick()")
+          i.icon
+          span Wuui 0.0.10
+          .sidebar__item_nav(@click.stop="showMenu()")
+            i.iconfont.icon-shousuo
+      .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
+        .sidebar__parent(@click.stop="onMenuClick(menu, index)")
           i.icon.iconfont(:class="[menu.icon]")
-          transition(name="fade")
-            ul.menu(v-show="menu.active")
-              li.menu__list(v-for="childMenu in menu.children")
-                router-link(active-class="active", :to='childMenu.path'  tag="span" exact) {{childMenu.name}}
-      .sidebar-expand(v-else  key="expand")
-        .sidebar__item(v-if="isComponentNav" )
-          .sidebar__parent(@click.stop="onHomeMenuClick()")
-            i.icon
-            span Wuui 0.0.10
-            .sidebar__item_nav(@click.stop="showMenu()")
-              i.iconfont.icon-shousuo
-        .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
-          .sidebar__parent(@click.stop="onMenuClick(menu, index)")
-            i.icon.iconfont(:class="[menu.icon]")
-            span {{menu.name}}
-            i.iconfont.icon-expand(v-if="isComponentNav")
-          ul.menu(v-show="!menu.active")
-            li.menu__list(v-for="childMenu in menu.children")
-              router-link(active-class="active", :to='childMenu.path'  tag="span" exact) {{childMenu.name}}
+          span {{menu.name}}
+          i.iconfont.icon-expand(v-if="isComponentNav")
+        ul.menu(v-show="!menu.active")
+          li.menu__list(v-for="childMenu in menu.children")
+            router-link(active-class="active", :to='childMenu.path'  tag="span" exact) {{childMenu.name}}
+
   </template>
 
 <script>
   import navList from '@/i18n/nav.config.json'
 
-  const MAX_LEFT_WIDTH = 200
-  const MIN_LEFT_WIDTH = 40
   export default {
     props: {
       typeName: {
@@ -45,7 +34,6 @@
     },
     data () {
       return {
-        show: false,
         menuList: [],
         activeIndex: -1
       }
@@ -61,20 +49,6 @@
       }
     },
     methods: {
-      showMenu () {
-        this.show = !this.show
-        let width = 0
-        if (this.show) {
-          width = MIN_LEFT_WIDTH
-        } else {
-          width = MAX_LEFT_WIDTH
-        }
-        this.$emit('data', width)
-        this.menuList.forEach(function (firstMenu) {
-          firstMenu.active = false
-        })
-      },
-
       focus (menu) {
         menu.active = !menu.active
       },

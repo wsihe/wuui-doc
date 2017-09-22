@@ -2,9 +2,8 @@
   .main
     main-nav
     .main__content.clearfix
-      side-bar(v-on:data="inactive")
+      side-bar
       .main__container
-        //main-tab
         .page.markdown
           .content
             router-view
@@ -17,18 +16,10 @@
   import sideBar from '@/components/base/sidebar'
   import mainFooter from '@/components/base/footer'
   export default {
-    data () {
-      return {
-        show: true // 页签数据
-      }
-    },
     components: {
       mainNav,
       sideBar,
       mainFooter
-    },
-    created () {
-      // console.log(this.show)
     }
   }
 </script>
@@ -74,10 +65,6 @@
       min-height 1170px
       overflow hidden
       border-left 1px solid #e9e9e9
-    .router-fade-enter-active, .router-fade-leave-active
-      transition opacity .3s
-    .router-fade-enter, .router-fade-leave-active
-      opacity 0
   footer
     clear both
     font-size 12px
