@@ -13,7 +13,6 @@
 </template>
 
 <script>
-  import $ from 'jquery'
   import mainNav from '@/components/base/head'
   import sideBar from '@/components/base/sidebar'
   import mainFooter from '@/components/base/footer'
@@ -30,13 +29,6 @@
     },
     created () {
       // console.log(this.show)
-    },
-    methods: {
-      inactive (data) {
-        let width = data
-        $('.main__container').animate({left: width + 'px'})
-        $('.sidebar').animate({width: width + 'px'})
-      }
     }
   }
 </script>
