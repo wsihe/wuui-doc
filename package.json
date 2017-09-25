@@ -14,7 +14,7 @@
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
     "vuex": "^2.3.1",
-    "wuui": "^0.0.10"
+    "wuui": "^0.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

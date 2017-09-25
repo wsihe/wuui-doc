@@ -1,3 +1,14 @@
+ <script>
+   import Wuui from 'wuui'
+   export default {
+     data () {
+       return {
+         version: Wuui.version
+       }
+     }
+   }
+ </script>
+
  ## Wuui
 
  这里基于 Ant Design 的 Vue2.0 实现，开发和服务于 PC 后台产品。
@@ -51,9 +62,7 @@
 
 ### 当前版本
 
-Wuui 0.0.10
-
-
+Wuui {{version}}
 
 
 ### 相关链接

@@ -4,7 +4,7 @@
       .sidebar__item(v-if="isComponentNav" )
         .sidebar__parent(@click.stop="onHomeMenuClick()")
           i.icon
-          span Wuui 0.0.10
+          span Wuui {{version}}
           .sidebar__item_nav(@click.stop="showMenu()")
             i.iconfont.icon-shousuo
       .sidebar__item(v-for="(menu, index) in menuList", :class="{active: menu.active}", v-cloak)
@@ -15,10 +15,10 @@
         ul.menu(v-show="!menu.active")
           li.menu__list(v-for="childMenu in menu.children")
             router-link(active-class="active", :to='childMenu.path'  tag="span" exact) {{childMenu.name}}
-
   </template>
 
 <script>
+  import Wuui from 'wuui'
   import navList from '@/i18n/nav.config.json'
 
   export default {
@@ -35,7 +35,8 @@
     data () {
       return {
         menuList: [],
-        activeIndex: -1
+        activeIndex: -1,
+        version: Wuui.version
       }
     },
     computed: {
@@ -205,11 +206,4 @@
                 left 34px
                 bottom 22px
                 background #2f92d1
-  .slide-fade-enter-active
-    transition all .3s ease
-  .slide-fade-leave-active
-    transition all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
-  .slide-fade-enter, .slide-fade-leave-active
-    transform translateX(-50px)
-    opacity 0
 </style>
