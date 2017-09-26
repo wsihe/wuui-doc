@@ -2,7 +2,7 @@
   .sidebar
     .sidebar-item(@click="onHomeMenuClick")
       span Wuui {{version}}
-    wu-menu(expand @on-click="onMenuClick", :inline-collapsed="collapse")
+    wu-menu(expand @on-click="onMenuClick")
       wu-submenu(:name="menu.icon", :key="index", v-for="(menu, index) in menuList")
         template(slot="title")
           i.sidebar-icon.iconfont(:class="[menu.icon]")
@@ -29,8 +29,7 @@
       return {
         menuList: [],
         activeIndex: -1,
-        version: Wuui.version,
-        collapse: false
+        version: Wuui.version
       }
     },
     mounted () {
