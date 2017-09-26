@@ -96,7 +96,7 @@
 ```
 :::
 
-<style>
+<style scoped>
   .wu-row {
     margin-bottom: 20px;
     &:last-child {

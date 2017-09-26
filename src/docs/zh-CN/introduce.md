@@ -42,7 +42,7 @@
 * 现代浏览器和 IE9 及以上
 * 支持服务端渲染
 
-### 已完成组件
+### 组件
 
  <ul class="component-list">
    <li><router-link active-class="active" to='grid' exact> Grid 栅格 </router-link></li>
@@ -58,6 +58,10 @@
    <li><router-link active-class="active" to='dropdown' exact> Dropdown 下拉菜单 </router-link></li>
    <li><router-link active-class="active" to='tabs' exact> Tabs 标签页 </router-link></li>
    <li><router-link active-class="active" to='collapse' exact> Collapse 折叠面板 </router-link></li>
+   <li><router-link active-class="active" to='spin' exact> Spin 加载中 </router-link></li>
+   <li><router-link active-class="active" to='menu' exact> Menu 导航菜单 </router-link></li>
+   <li><router-link active-class="active" to='tooltip' exact> Tooltip 文字提示 </router-link></li>
+   <li><router-link active-class="active" to='popover' exact> Popover 气泡卡片 </router-link></li>
  </ul>
 
 ### 当前版本

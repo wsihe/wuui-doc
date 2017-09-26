@@ -25,6 +25,14 @@
 
 <style lang="stylus" scoped>
   @import '../../assets/fonts/iconfont.css';
+  footer
+    clear both
+    font-size 12px
+    background #fff
+    position relative
+    z-index 1
+    color rgba(0,0,0,.65)
+    box-shadow 0 1000px 0 1000px #fff
   .footer-container
     padding 20px 50px
     margin 0 auto

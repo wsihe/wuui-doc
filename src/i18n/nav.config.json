@@ -90,6 +90,10 @@
         {
           "name": "Message 消息",
           "path": "message"
+        },
+        {
+          "name": "Spin 加载中",
+          "path": "spin"
         }
       ]
     },
@@ -98,6 +102,10 @@
       "name": "Navigation",
       "path": null,
       "menuItem": [
+        {
+          "name": "Menu 导航菜单",
+          "path": "menu"
+        },
         {
           "name": "Dropdown 下拉菜单",
           "path": "dropdown"
@@ -113,6 +121,14 @@
       "name": "Others",
       "path": null,
       "menuItem": [
+        {
+          "name": "Tooltip 文字提示",
+          "path": "tooltip"
+        },
+        {
+          "name": "Popover 气泡卡片",
+          "path": "popover"
+        },
         {
           "name": "Collapse 折叠面板",
           "path": "collapse"

@@ -23,6 +23,10 @@ import dropdownMd from '@/docs/zh-CN/dropdown'
 import tabsMd from '@/docs/zh-CN/tabs'
 import messageMd from '@/docs/zh-CN/message'
 import collapseMd from '@/docs/zh-CN/collapse'
+import spinMd from '@/docs/zh-CN/spin'
+import menuMd from '@/docs/zh-CN/menu'
+import tooltipMd from '@/docs/zh-CN/tooltip'
+import popoverMd from '@/docs/zh-CN/popover'
 
 Vue.use(Router)
 
@@ -199,6 +203,38 @@ const router = new Router({
           title: 'Collapse-折叠'
         },
         component: collapseMd
+      },
+      {
+        path: 'spin',
+        name: 'component-spin',
+        meta: {
+          title: 'Spin-加载中'
+        },
+        component: spinMd
+      },
+      {
+        path: 'menu',
+        name: 'component-menu',
+        meta: {
+          title: 'Menu-导航菜单'
+        },
+        component: menuMd
+      },
+      {
+        path: 'tooltip',
+        name: 'component-tooltip',
+        meta: {
+          title: 'tooltip-文字提示'
+        },
+        component: tooltipMd
+      },
+      {
+        path: 'popover',
+        name: 'component-popover',
+        meta: {
+          title: 'Popover-气泡卡片'
+        },
+        component: popoverMd
       }]
   },
   {
