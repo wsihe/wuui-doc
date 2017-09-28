@@ -8,7 +8,39 @@
 
 和 `wu-tooltip` 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。
 
-## API
+
+### 基本
+
+::: demo 最简单的用法。
+
+```html
+<wu-popover title="标题" content="提示内容">
+	<wu-button>鼠标经过</wu-button>
+</wu-popover>
+<wu-popover title="标题"  :style="{marginLeft:'30px'}">
+	<span slot="content">提示内容</span>
+	<wu-button type="primary">鼠标经过</wu-button>
+</wu-popover>
+
+```
+:::
+
+
+### 触发方式
+
+::: demo 鼠标移入、点击。。
+
+```html
+<wu-popover title="标题" content="提示内容" placement="top">
+	<wu-button>鼠标经过</wu-button>
+</wu-popover>
+<wu-popover title="标题" :style="{marginLeft:'30px'}" placement="top" trigger="click">
+	<span slot="content">提示内容</span>
+	<wu-button type="primary">鼠标点击</wu-button>
+</wu-popover>
+
+```
+:::
 
 ## API
 
