@@ -42,11 +42,11 @@ const router = new Router({
     component: guide,
     children: [
       {
-        path: 'design',
+        path: '/guide/design',
         component: design
       },
       {
-        path: 'contribution',
+        path: '/guide/contribution',
         component: contribution
       }
     ]

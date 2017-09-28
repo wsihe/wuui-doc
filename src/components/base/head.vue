@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import navConfig from '@/i18n/main.nav.json'
+  import navConfig from '@/i18n/top.nav.json'
   import list from '@/i18n/nav.config.json'
   export default {
     data () {
