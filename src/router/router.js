@@ -58,154 +58,154 @@ const router = new Router({
     component: component,
     children: [
       {
-        path: 'introduce',
+        path: '/component/introduce',
         meta: {
           title: '简介'
         },
         component: introduce
       },
       {
-        path: 'install',
+        path: '/component/install',
         meta: {
           title: '安装'
         },
         component: installMd
       },
       {
-        path: 'usage',
+        path: '/component/usage',
         meta: {
           title: '使用'
         },
         component: usageMd
       },
       {
-        path: 'grid',
+        path: '/component/grid',
         meta: {
           title: '栅格 Grid'
         },
         component: gridMd
       },
       {
-        path: 'icon',
+        path: '/component/icon',
         meta: {
           title: '图标 Icon'
         },
         component: iconMd
       },
       {
-        path: 'color',
+        path: '/component/color',
         meta: {
           title: '色彩 Color'
         },
         component: colorMd
       },
       {
-        path: 'button',
+        path: '/component/button',
         meta: {
           title: '按钮 Button'
         },
         component: buttonMd
       },
       {
-        path: 'input',
+        path: '/component/input',
         meta: {
           title: '输入框 Input'
         },
         component: inputMd
       },
       {
-        path: 'radio',
+        path: '/component/radio',
         meta: {
           title: '单选框 Radio'
         },
         component: radioMd
       },
       {
-        path: 'checkbox',
+        path: '/component/checkbox',
         meta: {
           title: '多选框 Checkbox'
         },
         component: checkboxMd
       },
       {
-        path: 'select',
+        path: '/component/select',
         meta: {
           title: '选择 Select'
         },
         component: selectMd
       },
       {
-        path: 'autoComplete',
+        path: '/component/autoComplete',
         meta: {
           title: '自动完成 AutoComplete'
         },
         component: autoCompleteMd
       },
       {
-        path: 'dropdown',
+        path: '/component/dropdown',
         meta: {
           title: '下拉菜单 Dropdown'
         },
         component: dropdownMd
       },
       {
-        path: 'tabs',
+        path: '/component/tabs',
         meta: {
           title: '标签页 Tabs'
         },
         component: tabsMd
       },
       {
-        path: 'pagination',
+        path: '/component/pagination',
         meta: {
           title: '分页 Pagination'
         },
         component: paginationMd
       },
       {
-        path: 'message',
+        path: '/component/message',
         meta: {
           title: '消息 Message'
         },
         component: messageMd
       },
       {
-        path: 'switch',
+        path: '/component/switch',
         meta: {
           title: '开关 Switch'
         },
         component: switchMd
       },
       {
-        path: 'collapse',
+        path: '/component/collapse',
         meta: {
           title: '折叠 Collapse'
         },
         component: collapseMd
       },
       {
-        path: 'spin',
+        path: '/component/spin',
         meta: {
           title: '加载中 Spin'
         },
         component: spinMd
       },
       {
-        path: 'menu',
+        path: '/component/menu',
         meta: {
           title: '导航菜单 Menu'
         },
         component: menuMd
       },
       {
-        path: 'tooltip',
+        path: '/component/tooltip',
         meta: {
           title: '文字提示 tooltip'
         },
         component: tooltipMd
       },
       {
-        path: 'popover',
+        path: '/component/popover',
         meta: {
           title: '气泡卡片 Popover'
         },

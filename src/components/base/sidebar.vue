@@ -2,7 +2,7 @@
   .sidebar
     .sidebar-item(@click="onHomeMenuClick")
       span Wuui {{version}}
-    wu-menu(expand @on-click="onMenuClick")
+    wu-menu(expand @on-click="handleItemClick")
       wu-submenu(:name="menu.icon", :key="index", v-for="(menu, index) in menuList")
         template(slot="title")
           i.sidebar-icon.iconfont(:class="[menu.icon]")
@@ -45,11 +45,11 @@
       },
 
       onHomeMenuClick () {
-        this.$router.push({path: 'introduce'})
+        this.$router.push({path: '/component/introduce'})
       },
 
-      onMenuClick (menu) {
-        this.$router.push({path: menu})
+      handleItemClick (item) {
+        this.$router.push({path: `/component/${item}`})
       },
 
       buildMenuTree (itemList) {
