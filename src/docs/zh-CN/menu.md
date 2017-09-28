@@ -1,3 +1,25 @@
+<script>
+  export default {
+    data () {
+      return {
+        collapse: false,
+        type: 'light'
+      }
+    },
+    methods: {
+      handle (val) {
+        this.collapse = val
+      },
+      handle2 (val) {
+      	if (val) {
+      		this.type = 'dark'
+      	} else {
+					this.type = 'light'
+      	}
+      }
+    }
+  }
+</script>
 <style scoped>
 .markdown ul > li {
     list-style-type: none;
@@ -10,7 +32,6 @@
 .wu-menu-item-group-list li.wu-menu-item {
 	padding: 0 16px 0 28px;
 }
-
 </style>
 
 ## Menu 导航菜单
@@ -55,6 +76,270 @@
   	<a href="https://wuui.github.io/" target="_blank" rel="noopener noreferrer">导航四</a>
   </wu-menu-item>
 </wu-menu>
+```
+:::
+
+### 内嵌菜单
+
+::: demo 垂直菜单，子菜单内嵌在菜单区域。
+
+```html
+<wu-menu mode="inline" :style="{width:'200px'}" selected-name="2" :open-names="['sub1']">
+	<wu-menu-item name="1">
+		<icon type="pie-chart"></icon>
+		<span> 导航一 </span>
+	</wu-menu-item>
+	<wu-submenu name="sub1">
+		<template slot="title">
+			<icon type="line-chart"></icon>
+      <span> 导航二 </span>
+		</template>
+		<wu-item-group>
+			<template slot="title"> 分组一 </template>
+			<wu-menu-item name="2"> 选项一 </wu-menu-item>
+			<wu-menu-item name="3"> 选项二 </wu-menu-item>
+		</wu-item-group>
+		<wu-item-group>
+    	<template slot="title"> 分组二 </template>
+    	<wu-menu-item name="4"> 选项三 </wu-menu-item>
+    	<wu-menu-item name="5"> 选项四 </wu-menu-item>
+    </wu-item-group>
+	</wu-submenu>
+	<wu-submenu name="sub2">
+		<template slot="title">
+			<icon type="desktop"></icon>
+      <span> 导航三 </span>
+		</template>
+		<wu-menu-item name="6"> 选项五 </wu-menu-item>
+    <wu-menu-item name="7"> 选项六 </wu-menu-item>
+    <wu-submenu name="sub3">
+    	<template slot="title"> 导航四 </template>
+    	<wu-menu-item name="6"> 选项五 </wu-menu-item>
+      <wu-menu-item name="7"> 选项六 </wu-menu-item>
+    </wu-submenu>
+	</wu-submenu>
+	<wu-submenu name="sub4">
+    <template slot="title">
+    	<icon type="appstore"></icon>
+      <span> 导航四 </span>
+    </template>
+    <wu-menu-item name="6"> 选项七 </wu-menu-item>
+    <wu-menu-item name="7"> 选项八 </wu-menu-item>
+  </wu-submenu>
+</wu-menu>
+```
+:::
+
+### 缩起内嵌菜单
+
+::: demo 内嵌菜单可以被缩起/展开。
+
+```html
+<div :style="{width:'200px'}">
+	<wu-switch @on-change="handle" :style="{marginBottom:'20px'}"></wu-switch>
+	<wu-menu theme="dark" mode="inline" :inline-collapsed="collapse">
+		<wu-menu-item name="1">
+			<icon type="pie-chart"></icon>
+			<span> 导航一 </span>
+		</wu-menu-item>
+		<wu-submenu name="sub1">
+			<template slot="title">
+				<icon type="line-chart"></icon>
+				<span> 导航二 </span>
+			</template>
+			<wu-item-group>
+				<template slot="title"> 分组一 </template>
+				<wu-menu-item name="2"> 选项一 </wu-menu-item>
+				<wu-menu-item name="3"> 选项二 </wu-menu-item>
+			</wu-item-group>
+			<wu-item-group>
+				<template slot="title"> 分组二 </template>
+				<wu-menu-item name="4"> 选项三 </wu-menu-item>
+				<wu-menu-item name="5"> 选项四 </wu-menu-item>
+			</wu-item-group>
+		</wu-submenu>
+		<wu-submenu name="sub2">
+			<template slot="title">
+				<icon type="desktop"></icon>
+				<span> 导航三 </span>
+			</template>
+			<wu-menu-item name="6"> 选项五 </wu-menu-item>
+			<wu-menu-item name="7"> 选项六 </wu-menu-item>
+			<wu-submenu name="sub3">
+				<template slot="title"> 导航四 </template>
+				<wu-menu-item name="6"> 选项五 </wu-menu-item>
+				<wu-menu-item name="7"> 选项六 </wu-menu-item>
+			</wu-submenu>
+		</wu-submenu>
+		<wu-submenu name="sub4">
+			<template slot="title">
+				<icon type="appstore"></icon>
+				<span> 导航四 </span>
+			</template>
+			<wu-menu-item name="6"> 选项七 </wu-menu-item>
+			<wu-menu-item name="7"> 选项八 </wu-menu-item>
+		</wu-submenu>
+	</wu-menu>
+</div>
+```
+:::
+
+### 只展开当前父级菜单
+
+::: demo 手风琴模式，点击菜单，收起其他展开的所有菜单，保持菜单聚焦简洁。
+
+```html
+<wu-menu mode="inline" :style="{width:'200px'}" selected-name="2" :open-names="['sub1']" accordion>
+	<wu-menu-item name="1">
+		<icon type="pie-chart"></icon>
+		<span> 导航一 </span>
+	</wu-menu-item>
+	<wu-submenu name="sub1">
+		<template slot="title">
+			<icon type="line-chart"></icon>
+      <span> 导航二 </span>
+		</template>
+		<wu-item-group>
+			<template slot="title"> 分组一 </template>
+			<wu-menu-item name="2"> 选项一 </wu-menu-item>
+			<wu-menu-item name="3"> 选项二 </wu-menu-item>
+		</wu-item-group>
+		<wu-item-group>
+    	<template slot="title"> 分组二 </template>
+    	<wu-menu-item name="4"> 选项三 </wu-menu-item>
+    	<wu-menu-item name="5"> 选项四 </wu-menu-item>
+    </wu-item-group>
+	</wu-submenu>
+	<wu-submenu name="sub2">
+		<template slot="title">
+			<icon type="desktop"></icon>
+      <span> 导航三 </span>
+		</template>
+		<wu-menu-item name="6"> 选项五 </wu-menu-item>
+    <wu-menu-item name="7"> 选项六 </wu-menu-item>
+    <wu-submenu name="sub3">
+    	<template slot="title"> 导航四 </template>
+    	<wu-menu-item name="6"> 选项五 </wu-menu-item>
+      <wu-menu-item name="7"> 选项六 </wu-menu-item>
+    </wu-submenu>
+	</wu-submenu>
+	<wu-submenu name="sub4">
+    <template slot="title">
+    	<icon type="appstore"></icon>
+      <span> 导航四 </span>
+    </template>
+    <wu-menu-item name="6"> 选项七 </wu-menu-item>
+    <wu-menu-item name="7"> 选项八 </wu-menu-item>
+  </wu-submenu>
+</wu-menu>
+```
+:::
+
+### 垂直菜单
+
+::: demo 子菜单是弹出的形式。
+
+```html
+<wu-menu mode="vertical" :style="{width:'200px'}">
+	<wu-menu-item name="1">
+		<icon type="pie-chart"></icon>
+		<span> 导航一 </span>
+	</wu-menu-item>
+	<wu-submenu name="sub1">
+		<template slot="title">
+			<icon type="line-chart"></icon>
+      <span> 导航二 </span>
+		</template>
+		<wu-item-group>
+			<template slot="title"> 分组一 </template>
+			<wu-menu-item name="2"> 选项一 </wu-menu-item>
+			<wu-menu-item name="3"> 选项二 </wu-menu-item>
+		</wu-item-group>
+		<wu-item-group>
+    	<template slot="title"> 分组二 </template>
+    	<wu-menu-item name="4"> 选项三 </wu-menu-item>
+    	<wu-menu-item name="5"> 选项四 </wu-menu-item>
+    </wu-item-group>
+	</wu-submenu>
+	<wu-submenu name="sub2">
+		<template slot="title">
+			<icon type="desktop"></icon>
+      <span> 导航三 </span>
+		</template>
+		<wu-menu-item name="6"> 选项五 </wu-menu-item>
+    <wu-menu-item name="7"> 选项六 </wu-menu-item>
+    <wu-submenu name="sub3">
+    	<template slot="title"> 导航四 </template>
+    	<wu-menu-item name="6"> 选项五 </wu-menu-item>
+      <wu-menu-item name="7"> 选项六 </wu-menu-item>
+    </wu-submenu>
+	</wu-submenu>
+	<wu-submenu name="sub4">
+    <template slot="title">
+    	<icon type="appstore"></icon>
+      <span> 导航四 </span>
+    </template>
+    <wu-menu-item name="6"> 选项七 </wu-menu-item>
+    <wu-menu-item name="7"> 选项八 </wu-menu-item>
+  </wu-submenu>
+</wu-menu>
+```
+:::
+
+### 主题
+
+::: demo 内建了两套主题 light|dark，默认 light。
+
+```html
+<div :style="{width:'200px'}">
+	<wu-switch @on-change="handle2" :style="{marginBottom:'20px'}">
+		<template slot="open"> Dark </template>
+		<template slot="close"> Light </template>
+	</wu-switch>
+	<wu-menu :theme="type" mode="inline">
+		<wu-menu-item name="1">
+			<icon type="pie-chart"></icon>
+			<span> 导航一 </span>
+		</wu-menu-item>
+		<wu-submenu name="sub1">
+			<template slot="title">
+				<icon type="line-chart"></icon>
+				<span> 导航二 </span>
+			</template>
+			<wu-item-group>
+				<template slot="title"> 分组一 </template>
+				<wu-menu-item name="2"> 选项一 </wu-menu-item>
+				<wu-menu-item name="3"> 选项二 </wu-menu-item>
+			</wu-item-group>
+			<wu-item-group>
+				<template slot="title"> 分组二 </template>
+				<wu-menu-item name="4"> 选项三 </wu-menu-item>
+				<wu-menu-item name="5"> 选项四 </wu-menu-item>
+			</wu-item-group>
+		</wu-submenu>
+		<wu-submenu name="sub2">
+			<template slot="title">
+				<icon type="desktop"></icon>
+				<span> 导航三 </span>
+			</template>
+			<wu-menu-item name="6"> 选项五 </wu-menu-item>
+			<wu-menu-item name="7"> 选项六 </wu-menu-item>
+			<wu-submenu name="sub3">
+				<template slot="title"> 导航四 </template>
+				<wu-menu-item name="6"> 选项五 </wu-menu-item>
+				<wu-menu-item name="7"> 选项六 </wu-menu-item>
+			</wu-submenu>
+		</wu-submenu>
+		<wu-submenu name="sub4">
+			<template slot="title">
+				<icon type="appstore"></icon>
+				<span> 导航四 </span>
+			</template>
+			<wu-menu-item name="6"> 选项七 </wu-menu-item>
+			<wu-menu-item name="7"> 选项八 </wu-menu-item>
+		</wu-submenu>
+	</wu-menu>
+</div>
 ```
 :::
 
