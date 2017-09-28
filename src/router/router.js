@@ -31,7 +31,6 @@ import popoverMd from '@/docs/zh-CN/popover'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
   routes:
   [{
     path: '/',
