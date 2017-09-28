@@ -6,7 +6,8 @@ import 'wuui/dist/wuui.css'
 import Demo from 'components/demo'
 import Code from 'components/code'
 
-Vue.config.productionTip = false
+// 开启debug模式
+Vue.config.debug = true
 
 Vue.use(Wuui)
 Vue.component('Demo', Demo)

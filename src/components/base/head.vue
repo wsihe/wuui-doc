@@ -2,7 +2,7 @@
   header
     .header-navbar
       .header-navbar__logo
-        a.logo(href='javascript:void(0)')
+        a.logo(href='javascript:void(0)', @click="handleHomeClick")
       .header-navbar__collapse
         .header-navbar__search
           wu-select(
@@ -32,6 +32,9 @@
       this.handleTitleData(navConfig)
     },
     methods: {
+      handleHomeClick () {
+        this.$router.push({path: '/'})
+      },
       handleTitleData (data) {
         this.navList = data['zh-CN']
       },

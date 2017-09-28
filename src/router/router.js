@@ -34,8 +34,7 @@ const router = new Router({
   mode: 'history',
   routes:
   [{
-    path: '/index',
-    name: 'index',
+    path: '/',
     component: index
   },
   {
@@ -45,12 +44,10 @@ const router = new Router({
     children: [
       {
         path: 'design',
-        name: 'guide-design',
         component: design
       },
       {
         path: 'contribution',
-        name: 'guide-contribution',
         component: contribution
       }
     ]
@@ -62,7 +59,6 @@ const router = new Router({
     children: [
       {
         path: 'introduce',
-        name: 'component-introduce',
         meta: {
           title: '简介'
         },
@@ -70,7 +66,6 @@ const router = new Router({
       },
       {
         path: 'install',
-        name: 'component-install',
         meta: {
           title: '安装'
         },
@@ -78,7 +73,6 @@ const router = new Router({
       },
       {
         path: 'usage',
-        name: 'component-usage',
         meta: {
           title: '使用'
         },
@@ -86,168 +80,153 @@ const router = new Router({
       },
       {
         path: 'grid',
-        name: 'component-grid',
         meta: {
-          title: 'Grid-栅格'
+          title: '栅格 Grid'
         },
         component: gridMd
       },
       {
         path: 'icon',
-        name: 'component-icon',
         meta: {
-          title: 'Icon-图标'
+          title: '图标 Icon'
         },
         component: iconMd
       },
       {
         path: 'color',
-        name: 'component-color',
         meta: {
-          title: 'Color-色彩'
+          title: '色彩 Color'
         },
         component: colorMd
       },
       {
         path: 'button',
-        name: 'component-button',
         meta: {
-          title: 'Button-按钮'
+          title: '按钮 Button'
         },
         component: buttonMd
       },
       {
         path: 'input',
-        name: 'component-input',
         meta: {
-          title: 'Input 输入框'
+          title: '输入框 Input'
         },
         component: inputMd
       },
       {
         path: 'radio',
-        name: 'component-radio',
         meta: {
-          title: 'Radio 单选框'
+          title: '单选框 Radio'
         },
         component: radioMd
       },
       {
         path: 'checkbox',
-        name: 'component-checkbox',
         meta: {
-          title: 'Checkbox 多选框'
+          title: '多选框 Checkbox'
         },
         component: checkboxMd
       },
       {
         path: 'select',
-        name: 'component-select',
         meta: {
-          title: 'Select 选择'
+          title: '选择 Select'
         },
         component: selectMd
       },
       {
         path: 'autoComplete',
-        name: 'component-autoComplete',
         meta: {
-          title: 'AutoComplete 自动完成'
+          title: '自动完成 AutoComplete'
         },
         component: autoCompleteMd
       },
       {
         path: 'dropdown',
-        name: 'component-dropdown',
         meta: {
-          title: 'Dropdown 下拉菜单'
+          title: '下拉菜单 Dropdown'
         },
         component: dropdownMd
       },
       {
         path: 'tabs',
-        name: 'component-tabs',
         meta: {
-          title: 'Tabs 标签页'
+          title: '标签页 Tabs'
         },
         component: tabsMd
       },
       {
         path: 'pagination',
-        name: 'component-pagination',
         meta: {
-          title: 'Pagination-分页'
+          title: '分页 Pagination'
         },
         component: paginationMd
       },
       {
         path: 'message',
-        name: 'component-message',
         meta: {
-          title: 'Message-消息'
+          title: '消息 Message'
         },
         component: messageMd
       },
       {
         path: 'switch',
-        name: 'switch',
         meta: {
-          title: 'Switch-开关'
+          title: '开关 Switch'
         },
         component: switchMd
       },
       {
         path: 'collapse',
-        name: 'component-collapse',
         meta: {
-          title: 'Collapse-折叠'
+          title: '折叠 Collapse'
         },
         component: collapseMd
       },
       {
         path: 'spin',
-        name: 'component-spin',
         meta: {
-          title: 'Spin-加载中'
+          title: '加载中 Spin'
         },
         component: spinMd
       },
       {
         path: 'menu',
-        name: 'component-menu',
         meta: {
-          title: 'Menu-导航菜单'
+          title: '导航菜单 Menu'
         },
         component: menuMd
       },
       {
         path: 'tooltip',
-        name: 'component-tooltip',
         meta: {
-          title: 'tooltip-文字提示'
+          title: '文字提示 tooltip'
         },
         component: tooltipMd
       },
       {
         path: 'popover',
-        name: 'component-popover',
         meta: {
-          title: 'Popover-气泡卡片'
+          title: '气泡卡片 Popover'
         },
         component: popoverMd
       }]
   },
   {
-    path: '',
-    redirect: '/index'
-  }],
-  scrollBehavior (to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  }
+    path: '*',
+    redirect: '/'
+  }]
+})
+
+router.beforeEach((to, from, next) => {
+  let title = to.meta.title
+  title = title ? title + ' | Wuui' : 'Wuui - A Vue.js 2.0  UI Toolkit Base On  Ant Design For Web'
+  window.document.title = title
+  next()
+})
+
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
 })
 
 export default router
