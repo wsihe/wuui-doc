@@ -38,11 +38,11 @@
 
 ```html
 <wu-tooltip content="提示内容">
-	<span>鼠标经过文字提示</span>
+  <span>鼠标经过文字提示</span>
 </wu-tooltip>
 <wu-tooltip :style="{marginLeft:'30px'}">
-	<span slot="content">提示内容</span>
-	<span>鼠标经过文字提示</span>
+  <span slot="content">提示内容</span>
+  <span>鼠标经过文字提示</span>
 </wu-tooltip>
 
 ```
@@ -54,18 +54,18 @@
 
 ```html
 <div :style="{marginLeft:'60px'}">
-	<wu-tooltip placement="top-start" :content="content">
-  	<a>TL</a>
+  <wu-tooltip placement="top-start" :content="content">
+    <a>TL</a>
   </wu-tooltip>
   <wu-tooltip placement="top" :content="content">
-  	<a>Top</a>
+    <a>Top</a>
   </wu-tooltip>
   <wu-tooltip placement="top-end" :content="content">
-  	<a>TR</a>
+    <a>TR</a>
   </wu-tooltip>
 </div>
 <div :style="{width:'60px', float: 'left'}">
-	<wu-tooltip placement="left-start" :content="content">
+  <wu-tooltip placement="left-start" :content="content">
   	<a>LT</a>
   </wu-tooltip>
   <wu-tooltip placement="left" :content="content">
@@ -76,7 +76,7 @@
   </wu-tooltip>
 </div>
 <div :style="{width:'60px', marginLeft: '270px'}">
-	<wu-tooltip placement="right-start" :content="content">
+  <wu-tooltip placement="right-start" :content="content">
   	<a>RL</a>
   </wu-tooltip>
   <wu-tooltip placement="right" :content="content">
@@ -87,7 +87,7 @@
   </wu-tooltip>
 </div>
 <div :style="{marginLeft:'60px', clear: 'both'}">
-	<wu-tooltip placement="bottom-start" :content="content">
+  <wu-tooltip placement="bottom-start" :content="content">
   	<a>BL</a>
   </wu-tooltip>
   <wu-tooltip placement="bottom" :content="content">
@@ -103,6 +103,8 @@
 
 ## API
 
+### wu-tooltip
+
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
 | content     | 提示文字，也可以通过 slot#content 传入 DOM   | string/slot | -    |
@@ -114,8 +116,8 @@
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `top-start` `top-end` `bottom-start` `bottom-end` `left-start` `left-end` `right-start` `right-end` | string  | bottom    |
-| open-delay | 鼠标移入后延时多少才显示 Tooltip，单位：毫秒 | number | 10 |
-| close-delay | 鼠标移出后延时多少才隐藏 Tooltip，单位：毫秒 | number | 10 |
+| open-delay | 鼠标移入后延时多少才显示，单位：毫秒 | number | 10 |
+| close-delay | 鼠标移出后延时多少才隐藏，单位：毫秒 | number | 10 |
 | trigger   | 触发行为，可选 `hover/click`       | string        | hover  |
 | enterable  | 鼠标是否可进入到 tooltip/popover 中       | Boolean        | true  |
 | popper-options   | [popper.js](https://popper.js.org/popper-documentation.html) 的参数   | Object   | { boundariesElement: 'body', gpuAcceleration: false }  |

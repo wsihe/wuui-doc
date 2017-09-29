@@ -27,6 +27,7 @@ import spinMd from '@/docs/zh-CN/spin'
 import menuMd from '@/docs/zh-CN/menu'
 import tooltipMd from '@/docs/zh-CN/tooltip'
 import popoverMd from '@/docs/zh-CN/popover'
+import popconfirmMd from '@/docs/zh-CN/popconfirm'
 
 Vue.use(Router)
 
@@ -209,6 +210,13 @@ const router = new Router({
           title: '气泡卡片 Popover'
         },
         component: popoverMd
+      },
+      {
+        path: '/component/popconfirm',
+        meta: {
+          title: '气泡确认框 Popconfirm'
+        },
+        component: popconfirmMd
       }]
   },
   {
