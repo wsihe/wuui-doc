@@ -28,6 +28,7 @@ import menuMd from '@/docs/zh-CN/menu'
 import tooltipMd from '@/docs/zh-CN/tooltip'
 import popoverMd from '@/docs/zh-CN/popover'
 import popconfirmMd from '@/docs/zh-CN/popconfirm'
+import modalMd from '@/docs/zh-CN/modal'
 
 Vue.use(Router)
 
@@ -217,6 +218,13 @@ const router = new Router({
           title: '气泡确认框 Popconfirm'
         },
         component: popconfirmMd
+      },
+      {
+        path: '/component/modal',
+        meta: {
+          title: '对话框 Modal'
+        },
+        component: modalMd
       }]
   },
   {
