@@ -105,6 +105,23 @@
   <div>内容...</div>
   <div>内容...</div>
 </wu-modal>
+<script>
+  export default {
+    data () {
+      return {
+        modalVisible: false,
+      }
+    },
+    methods: {
+      handleOk () {
+        this.$message('确定')
+      },
+      handleCancel () {
+        this.$message('取消')
+      }
+    }
+  }
+</script>
 ```
 :::
 
@@ -119,6 +136,22 @@
   <div>内容...</div>
   <div>内容...</div>
 </wu-modal>
+<script>
+  export default {
+    data () {
+      return {
+        modalVisible1: false,
+      }
+    },
+    methods: {
+      handleOk2 () {
+        setTimeout(() => {
+          this.modalVisible1 = false
+        }, 2000)
+      }
+    }
+  }
+</script>
 ```
 :::
 
@@ -137,6 +170,28 @@
 		<wu-button type="primary" size="large" @click="handleOkClick" :loading="buttonLoading">确定</wu-button>
   </template>
 </wu-modal>
+<script>
+  export default {
+    data () {
+      return {
+        modalVisible3: false,
+        buttonLoading: false
+      }
+    },
+    methods: {
+      handleCancelClick () {
+        this.modalVisible3 = false
+      },
+      handleOkClick () {
+        this.buttonLoading = true
+        setTimeout(() => {
+          this.modalVisible3 = false
+          this.buttonLoading = false
+        }, 2000)
+      }
+    }
+  }
+</script>
 ```
 :::
 
@@ -148,6 +203,30 @@
 ```html
 <wu-button @click="handleInstance" >Confirm</wu-button>
 <wu-button @click="handleInstance1" >onCancel/onOk</wu-button>
+<script>
+  export default {
+    methods: {
+      handleInstance () {
+        this.$modal.confirm({
+          title: '提示',
+          content: '功能描述'
+        })
+      },
+      handleInstance1 () {
+        this.$modal.confirm({
+          title: '提示',
+          content: '功能描述',
+          onOk () {
+            console.log('onOk')
+          },
+          onCancel () {
+            console.log('onCancel')
+          }
+        })
+      }
+    }
+  }
+</script>
 ```
 :::
 
@@ -160,6 +239,42 @@
 <wu-button @click="instance('success')" >Success</wu-button>
 <wu-button @click="instance('error')" >Error</wu-button>
 <wu-button @click="instance('warning')" >Warning</wu-button>
+<script>
+  export default {
+    methods: {
+      instance (type) {
+        const title = '标题'
+        const content = '内容'
+        switch (type) {
+          case 'info':
+            this.$modal.info({
+              title: title,
+              content: content
+            })
+            break
+          case 'success':
+            this.$modal.success({
+              title: title,
+              content: content
+            })
+            break
+          case 'warning':
+            this.$modal.warning({
+              title: title,
+              content: content
+            })
+            break
+          case 'error':
+            this.$modal.error({
+              title: title,
+              content: content
+            })
+            break
+        }
+      }
+    }
+  }
+</script>
 ```
 :::
 
