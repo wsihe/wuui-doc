@@ -29,6 +29,7 @@ import tooltipMd from '@/docs/zh-CN/tooltip'
 import popoverMd from '@/docs/zh-CN/popover'
 import popconfirmMd from '@/docs/zh-CN/popconfirm'
 import modalMd from '@/docs/zh-CN/modal'
+import timePickerMd from '@/docs/zh-CN/time-picker'
 
 Vue.use(Router)
 
@@ -225,6 +226,13 @@ const router = new Router({
           title: '对话框 Modal'
         },
         component: modalMd
+      },
+      {
+        path: '/component/timePicker',
+        meta: {
+          title: '时间选择框 TimePicker'
+        },
+        component: timePickerMd
       }]
   },
   {

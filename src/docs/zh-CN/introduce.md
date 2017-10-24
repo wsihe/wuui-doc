@@ -63,6 +63,7 @@
    <li><router-link active-class="active" to='tooltip' exact> Tooltip 文字提示 </router-link></li>
    <li><router-link active-class="active" to='popover' exact> Popover 气泡卡片 </router-link></li>
    <li><router-link active-class="active" to='popconfirm' exact> Popconfirm 气泡确认框 </router-link></li>
+   <li><router-link active-class="active" to='timePicker' exact> TimePicker 时间选择框 </router-link></li>
    <li><router-link active-class="active" to='modal' exact> Modal 对话框 </router-link></li>
  </ul>
 
