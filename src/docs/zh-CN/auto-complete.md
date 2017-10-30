@@ -67,8 +67,8 @@
 
 | 参数           | 说明                             | 类型        | 默认值 |
 |----------------|----------------------------------|------------|---------|
-| dataSource          | 自动完成的数据源 | []     |         |
-| value    | 指定当前选中的条目 | string\|string[]    |  无  |
+| dataSource          | 自动完成的数据源 | Array     |         |
+| value    | 指定当前选中的条目 | string\|Array    |  无  |
 | on-change | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | 无 |
 | on-search | 搜索补全项的时候调用 | function(value) | 无 |
 | disabled | 是否禁用 | boolean | false |

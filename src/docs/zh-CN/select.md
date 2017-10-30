@@ -126,7 +126,7 @@
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| value    | 指定当前选中的条目 | string\|string[] |  -  |
+| value    | 指定当前选中的条目 | string\|Array |  -  |
 | on-change | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | - |
 | on-blur | 失去焦点的时回调 | function | - |
 | on-focus | 获得焦点时回调 | function | - |
