@@ -45,7 +45,7 @@
 ::: demo 方便的从数组生成 Checkbox 组。
 
 ```html
-<wu-checkbox-group size="large">
+<wu-checkbox-group size="large" v-model="value2">
  <wu-checkbox label="a"> checkbox 1 </wu-checkbox>
  <wu-checkbox label="b"> checkbox 2 </wu-checkbox>
  <wu-checkbox label="c"> checkbox 3 </wu-checkbox>
@@ -60,7 +60,7 @@
 
 | 参数      | 说明             | 类型      | 默认值  |
 |----------|------------------|----------|--------|
-| value | 指定选中的选项| string[] | [] |
+| value | 是否选中状态| boolean | false |
 | on-change | 变化时回调函数 | Function(e:Event) | - |
 | indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false |
 
@@ -68,5 +68,5 @@
 
 | 参数      | 说明             | 类型      | 默认值  |
 |----------|------------------|----------|--------|
-| value | 指定选中的选项| string[] | [] |
+| value | 指定选中的选项| string/Array | - |
 | on-change | 变化时回调函数 | Function(checkedValue) | - |
