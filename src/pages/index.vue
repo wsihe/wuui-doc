@@ -33,7 +33,9 @@
   .home-page
     height 100%
     background url("../assets/images/bg.jpg") no-repeat
-    background-size 100%
+    background-repeat no-repeat
+    background-position center center
+    background-size cover
     .header-navbar
       position fixed
       z-index 999
