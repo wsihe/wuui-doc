@@ -12,9 +12,11 @@
             @on-change="handleChange")
             wu-option(:value="item.path", :label="item.name", :key="index", v-for="(item, index) in components")
       .header-lang 中文
-      ul.header-nav
-        li.header-nav__item(v-for="nav in navList")
-          router-link(active-class="active", :to='nav.path') {{nav.name}}
+      .header-nav
+        wu-menu(mode="horizontal", :selected-name="selectedName")
+          wu-menu-item(:name="nav.path" v-for="(nav, index) in navList", :key="index")
+            router-link(:to='nav.path')
+              span {{nav.name}}
 </template>
 
 <script>
@@ -30,6 +32,15 @@
     },
     created () {
       this.handleTitleData(navConfig)
+    },
+    mounted () {
+      this.components = this.handleMenuData(list)
+      console.log(this.$route.matched[0].path)
+    },
+    computed: {
+      selectedName () {
+        return this.$route.matched[0].path ? this.$route.matched[0].path : '/index'
+      }
     },
     methods: {
       handleHomeClick () {
@@ -52,9 +63,6 @@
         })
         return comList
       }
-    },
-    mounted () {
-      this.components = this.handleMenuData(list)
     }
   }
 </script>
@@ -98,28 +106,28 @@
       .wu-icon
         display none
     .header-nav
-      border 0
       float right
       font-size 14px
-      font-family Lato,Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
-      .header-nav__item
-        position relative
-        top -2px
-        float left
-        height 80px
-        line-height 80px
-        min-width 72px
-        text-align center
-        border-bottom-width 3px
-        a
-          text-decoration none
-          display block
-          padding 0 20px
-          opacity .9
-          &:hover, &.active
-            border-bottom 3px solid #108ee9
+      .wu-menu-horizontal
+        border-bottom none
+        & > .wu-menu-item
+          height 80px
+          line-height 76px
+          min-width 72px
+          border-top 2px solid transparent
+          a
+            display block
+            font-weight 400
+          &:hover
+            border-top 2px solid #108ee9
+            border-bottom 2px solid transparent
+        & > .wu-menu-item-selected
+          border-top 2px solid #1890ff
+          border-bottom 2px solid transparent
+          a
+            font-weight 500
             color #108ee9
-            font-weight 700
+
     .header-lang
       float right
       margin-top 28px

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/pages/index'
+import index from '@/index'
 import guide from '@/pages/guide'
 import pro from '@/pages/pro'
 import component from '@/pages/component'
@@ -45,7 +45,15 @@ const router = new Router({
   routes:
   [{
     path: '/',
-    component: index
+    name: '_home',
+    redirect: '/index',
+    component: index,
+    children: [
+      {
+        path: '/index',
+        component: index
+      }
+    ]
   },
   {
     path: '/pro',
