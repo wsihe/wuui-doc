@@ -39,7 +39,7 @@
 
     .wu-btn
       width 110px
-      border-radius  36px
+      border-radius 36px
     .header-navbar  .header-navbar__search
         display none
 
@@ -56,6 +56,7 @@
         padding 0 24px
       .text-wrapper
         position relative
+        left 10%
         width 54%
         max-width 560px
         min-width 420px
@@ -68,26 +69,26 @@
         height 500px
         position absolute
         right 10%
-        bottom 0px
+        bottom -50px
         background url("./assets/images/index.png") no-repeat
         background-repeat no-repeat
+        background-position 40% 80%
         background-size 120%
 
   .home-page__title
-    font-size 36px
+    font-size 48px
     font-weight 700
     color rgba(0, 0, 0, 0.85)
-    text-align center
+    text-align left
   .home-page__sub-title
-    margin 20px 0 50px
-    font-size 18px
-    text-align center
+    margin 20px 0 40px
+    font-size 22px
+    text-align left
     color #697b8c
   .home-button
     width 250px
-    margin 0 auto
     .btn
       display inline-block
       &:first-child
-        margin-right 30px
+        margin-right 20px
 </style>
