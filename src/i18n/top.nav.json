@@ -5,16 +5,16 @@
       "name": "首页"
     },
     {
-      "path": "/guide",
-      "name": "指南"
-    },
-    {
       "path": "/component",
       "name": "组件"
     },
     {
       "path": "/pro",
       "name": "PRO"
+    },
+    {
+      "path": "/guide",
+      "name": "指南"
     }
   ],
   "en-US": [
