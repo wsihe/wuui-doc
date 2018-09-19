@@ -2,9 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/pages/index'
 import guide from '@/pages/guide'
+import pro from '@/pages/pro'
 import component from '@/pages/component'
+
+// pro
+import start from '@/docs/zh-CN/pro/start'
+
+// design
 import design from '@/docs/zh-CN/design'
 import contribution from '@/docs/zh-CN/contribution'
+
+// component
 import introduce from '@/docs/zh-CN/introduce'
 import installMd from '@/docs/zh-CN/install'
 import usageMd from '@/docs/zh-CN/usage'
@@ -38,6 +46,17 @@ const router = new Router({
   [{
     path: '/',
     component: index
+  },
+  {
+    path: '/pro',
+    redirect: '/pro/start',
+    component: pro,
+    children: [
+      {
+        path: '/pro/start',
+        component: start
+      }
+    ]
   },
   {
     path: '/guide',

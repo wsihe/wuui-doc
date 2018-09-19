@@ -15,8 +15,6 @@
       ul.header-nav
         li.header-nav__item(v-for="nav in navList")
           router-link(active-class="active", :to='nav.path') {{nav.name}}
-        li.header-nav__item
-          a(href="http://wusihe.com/pro/#/home") PRO
 </template>
 
 <script>

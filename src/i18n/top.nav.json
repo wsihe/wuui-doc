@@ -11,6 +11,10 @@
     {
       "path": "/component",
       "name": "组件"
+    },
+    {
+      "path": "/pro",
+      "name": "PRO"
     }
   ],
   "en-US": [
