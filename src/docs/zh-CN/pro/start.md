@@ -7,11 +7,11 @@
 	 <div align="center">
 	 	<p>开箱即用的中台前端/设计解决方案。</P>
 	 	<div  class="start-button">
-	 		<a href="http://wusihe.com/pro/#/home">
+	 		<a href="http://wuui.github.io/pro/#/home" target="_blank">
 				<wu-button size="large" type="primary">Demo预览</wu-button>
 			</a>
-			<a href="https://github.com/wsihe/wuui-pro">
-				<wu-button size="large" >GitHub</wu-button>
+			<a href="https://github.com/wsihe/wuui-pro" target="_blank">
+				<wu-button size="large" icon="github">GitHub</wu-button>
 			</a>
 	 </div>
 	 </div>

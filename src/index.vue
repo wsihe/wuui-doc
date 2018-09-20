@@ -7,10 +7,10 @@
           h1.home-page__title Wuui
           h2.home-page__sub-title 基于 Vue 2.0 和 Ant Design 的 UI 组件库
           .home-button
-            router-link(class='btn' to='guide')
-              wu-button(size="large" type="primary") 设计规范
             router-link(class='btn' to='component')
-              wu-button(size="large") 组件
+              wu-button(size="large" type="primary") 开始使用
+            a(class='btn' href='https://github.com/wsihe/wuui-pro' target="_blank")
+              wu-button(size="large" icon="github") GitHub
         .img-wrapper
 </template>
 
