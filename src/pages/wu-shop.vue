@@ -8,6 +8,7 @@
       p 小程序商城，已经完成大部分功能的开发，正在测试。
     .wu-shop-content
       h3 截图
+    .wu-shop-img
       .img-content
         img.img(src="~@/assets/mpshop/index.png")
         img.img(src="~@/assets/mpshop/cat.png")
@@ -42,9 +43,13 @@
       p
         line-height 40px
     .wu-shop-content
-      margin-top 30px
+      padding 0 80px
+      h3
+        line-height 44px
       p
-        line-height 40px
+        font-size 14px
+        line-height 26px
+        color #34495e
     .img-content
       display flex
       max-width 1200px

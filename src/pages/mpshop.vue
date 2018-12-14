@@ -3,7 +3,6 @@
     main-nav
     .main__content.clearfix
       wu-shop
-    main-footer
 </template>
 
 <script>
@@ -33,13 +32,13 @@
 <style lang="stylus" scoped>
   .main
     min-width 1040px
+    padding-bottom 24px
     background #ececec
   .main__content
     display block
     margin 0 48px
     border-radius 4px
     padding 30px
-    margin-bottom 24px
     background  #fff
     height 100%
 </style>
