@@ -42,6 +42,7 @@
 
 <style lang="stylus" scoped>
   .main
+    min-width 1040px
     background #ececec
   .main__content
     display block

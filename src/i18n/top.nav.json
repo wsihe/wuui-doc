@@ -13,6 +13,10 @@
       "name": "PRO"
     },
     {
+      "path": "/mpshop",
+      "name": "小程序"
+    },
+    {
       "path": "/guide",
       "name": "指南"
     }

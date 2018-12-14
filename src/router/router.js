@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import index from '@/index'
 import guide from '@/pages/guide'
 import pro from '@/pages/pro'
+import mpshop from '@/pages/mpshop'
 import component from '@/pages/component'
 
 // pro
@@ -65,6 +66,10 @@ const router = new Router({
         component: start
       }
     ]
+  },
+  {
+    path: '/mpshop',
+    component: mpshop
   },
   {
     path: '/guide',
