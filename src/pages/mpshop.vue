@@ -34,6 +34,7 @@
     min-width 1040px
     padding-bottom 24px
     background #ececec
+    min-height 100vh
   .main__content
     display block
     margin 0 48px
