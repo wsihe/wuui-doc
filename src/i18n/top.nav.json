@@ -17,6 +17,10 @@
       "name": "小程序"
     },
     {
+      "path": "/reactNative",
+      "name": "ReactNative"
+    },
+    {
       "path": "/guide",
       "name": "指南"
     }

@@ -2,23 +2,30 @@
   .wu-shop
     .shop-container
       .shop-head
-        h2 小程序 MpShop
+        h2 小程序 shop
         p 微信商城小程序
       .shop-content
         h3 功能列表
         p 首页
-        p 分类商品、精选商品
-        p 商品详情页面，包含加入购物车、收藏商品功能
         p 搜索功能
-        p 完整的购物流程（编辑、删除，收货地址的选择，下单支付）
-        p 会员中心（订单、收藏、收货地址、意见反馈）
+        p 精选商品
+        p 分类商品
+        p 商品详情
+        p 购物车
+        p 购物（购物单编辑、删除，收货地址的选择，下单支付）
+        p 会员中心（订单、收藏、收货地址、意见反馈、客服）
+      .shop-footer
+        wu-tooltip(placement="top", :content="content")
+          .content(slot="content")
+            img.toooltip-img(src="~@/assets/mpshop/weixin.jpg")
+          wu-button(size="large" type="") 扫码体验线上版本
     .simulator(@mouseenter="showWeixin = true", @mouseleave="showWeixin = false")
       .simulator__nav
       .simulator__content
-        img.preview-image(src="~@/assets/mpshop/index.png")
+        img.preview-image(src="~@/assets/mpshop/index.jpg")
         .preview-popup(v-if="showWeixin")
           .preview-content
-            img.img(src="~@/assets/mpshop/weixin.png")
+            img.img(src="~@/assets/mpshop/weixin.jpg")
             p 微信扫码体验
 
 </template>
@@ -29,7 +36,8 @@
     data () {
       return {
         navList: [],
-        showWeixin: false
+        showWeixin: false,
+        content: '111'
       }
     },
     components: {
@@ -42,6 +50,10 @@
 </script>
 
 <style lang="stylus">
+  .toooltip-img
+    width 180px
+    height 180px
+
   .wu-shop
     position relative
     display block
@@ -67,6 +79,8 @@
         p
           font-size 14px
           line-height 26px
+      .shop-footer
+        margin 40px
 
     .simulator
       z-index 1

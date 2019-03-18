@@ -4,6 +4,7 @@ import index from '@/index'
 import guide from '@/pages/guide'
 import pro from '@/pages/pro'
 import mpshop from '@/pages/mpshop'
+import reactNative from '@/pages/reactNative'
 import component from '@/pages/component'
 
 // pro
@@ -70,6 +71,10 @@ const router = new Router({
   {
     path: '/mpshop',
     component: mpshop
+  },
+  {
+    path: '/reactNative',
+    component: reactNative
   },
   {
     path: '/guide',
