@@ -62,10 +62,10 @@
     margin 0 auto
 
     .shop-container
-      position: absolute
-      top: 100px
-      left: 250px
-      width: 420px
+      position absolute
+      top 100px
+      left 20%
+      width 420px
       .shop-head
         text-align center
         h2
